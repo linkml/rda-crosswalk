@@ -1,0 +1,23 @@
+{
+   "B2FIND": "http://example.org/B2FIND/",
+   "CodeMeta": "http://example.org/CodeMeta/",
+   "DATS": "http://example.org/DATS/",
+   "DDI": "http://example.org/DDI/",
+   "Datacite": "http://example.org/Datacite/",
+   "Dataverse": "http://example.org/Dataverse/",
+   "ECRIN": "http://example.org/ECRIN/",
+   "EOSC": "http://example.org/EOSC/",
+   "ISO19115-1": "http://example.org/ISO19115-1/",
+   "bioschemas": "http://example.org/bioschemas/",
+   "dc": "http://purl.org/dc/elements/1.1/",
+   "dcat": "http://www.w3.org/ns/dcat#",
+   "dct": "http://example.org/dct/",
+   "dcterms": "https://dublincore.org/specifications/dublin-core/dcmi-terms/#",
+   "foaf": "http://xmlns.com/foaf/0.1/",
+   "linkml": "https://w3id.org/linkml/",
+   "owl": "http://www.w3.org/2002/07/owl#",
+   "rda": "https://example.org/rda/",
+   "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+   "sosa": "http://example.org/sosa/",
+   "unknown": "http://example.org/unknown/"
+}

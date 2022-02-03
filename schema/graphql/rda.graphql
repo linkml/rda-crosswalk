@@ -1,0 +1,82 @@
+type Thing
+  {
+    subjectOf: String
+  }
+
+type CreativeWork
+  {
+    citation: String
+    keywords: String
+    license: String
+    creator: String
+    isPartOf: String
+    hasPart: String
+    version: String
+    temporalCoverage: String
+    spatialCoverage: String
+    funder: String
+    publisher: String
+    subjectOf: String
+    dateCreated: String
+    datePublished: Date
+    dateModified: String
+    copyrightHolder: String
+    mentions: String
+    isBasedOn: String
+    encodingFormat: String
+    fileFormat(supersededByEncordingFormat): String
+    contributor: String
+    producer: String
+    editor: String
+    copyrightYear: String
+    isAccessibleForFree: Boolean
+  }
+
+type DataCatalog
+  {
+    measurementTechnique: String
+  }
+
+type DataDowload
+  {
+    measurementTechnique: String
+  }
+
+type DataDownload
+  {
+    distribution.contentUrl: Uriorcurie
+    distribution.encodingFormat: String
+  }
+
+type Dataset
+  {
+    measurementTechnique: String
+    variableMeasured: String
+    includedInDataCatalog: String
+    distribution: String
+  }
+
+type MediaObject
+  {
+    contentURL: Uriorcurie
+    contentSize: String
+  }
+
+type Schedule
+  {
+    repeatFrequency: String
+  }
+
+type Thing
+  {
+    description: String!
+    name: String!
+    identifier: String
+    alternateName: String
+    sameAs: Uriorcurie
+    url: Uriorcurie
+    contactPoint: String
+    inLanguage: String
+    isRelatedTo: String
+  }
+

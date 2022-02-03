@@ -1,0 +1,232 @@
+@prefix rda: <https://example.org/rda/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rda:CreativeWork a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "Indicates that the CreativeWork contains a reference to, but is not necessarily about a concept." ;
+            sh:maxCount 1 ;
+            sh:order 16 ;
+            sh:path rda:mentions ],
+        [ sh:description "A license document that applies to this content, typically indicated by URL.  (A license under which the dataset is distributed.)" ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path rda:license ],
+        [ sh:description "Indicates a CreativeWork that is (in some sense) a part of this CreativeWork. Reverse property isPartOf" ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path rda:hasPart ],
+        [ sh:description "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed." ;
+            sh:maxCount 1 ;
+            sh:order 14 ;
+            sh:path rda:dateModified ],
+        [ sh:description "The person or organization who produced the work (e.g. music album, movie, tv/radio series etc.)." ;
+            sh:maxCount 1 ;
+            sh:order 21 ;
+            sh:path rda:producer ],
+        [ sh:description "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.  (Identifies academic articles that are recommended by the data provider be cited in addition to the dataset itself. Provide the citation for the dataset itself with other properties, such as name, identifier, creator, and publisher properties. For example, this property can uniquely identify a related academic publication such as a data descriptor, data paper, or an article for which this dataset is supplementary material for.)" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path rda:citation ],
+        [ sh:description "Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas." ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path rda:keywords ],
+        [ sh:description "The date on which the CreativeWork was created or the item was added to a DataFeed." ;
+            sh:maxCount 1 ;
+            sh:order 12 ;
+            sh:path rda:dateCreated ],
+        [ sh:description "Date of first broadcast/publication." ;
+            sh:maxCount 1 ;
+            sh:order 13 ;
+            sh:path rda:datePublished ],
+        [ sh:description "Indicates a CreativeWork that this CreativeWork is (in some sense) part of. Reverse property hasPart.  If the dataset is a collection of smaller datasets, use the hasPart property to denote such relationship. Conversly, if the dataset is part of a larger dataset, use isPartOf." ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path rda:isPartOf ],
+        [ sh:description "Media type typically expressed using a MIME format" ;
+            sh:maxCount 1 ;
+            sh:order 18 ;
+            sh:path rda:encodingFormat ],
+        [ sh:description "The temporalCoverage of a CreativeWork indicates the period that the content applies to  (The data in the dataset covers a specific time interval. Only include this property if the dataset has a temporal dimension.)" ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path rda:temporalCoverage ],
+        [ sh:description "Specifies the Person who edited the CreativeWork." ;
+            sh:maxCount 1 ;
+            sh:order 22 ;
+            sh:path rda:editor ],
+        [ sh:description "The publisher of the creative work" ;
+            sh:maxCount 1 ;
+            sh:order 10 ;
+            sh:path rda:publisher ],
+        [ sh:description "The spatialCoverage of a CreativeWork indicates the place(s) which are the focus of the content.  (You can provide a single point that describes the spatial aspect of the dataset. Only include this property if the dataset has a spatial dimension.)" ;
+            sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path rda:spatialCoverage ],
+        [ sh:description "The subject matter of content" ;
+            sh:maxCount 1 ;
+            sh:order 11 ;
+            sh:path rda:subjectOf ],
+        [ sh:description "A resource from which this work is derived or from which it is a modification or adaption" ;
+            sh:maxCount 1 ;
+            sh:order 17 ;
+            sh:path rda:isBasedOn ],
+        [ sh:description "The year during which the claimed copyright for the CreativeWork was first asserted." ;
+            sh:maxCount 1 ;
+            sh:order 23 ;
+            sh:path rda:copyrightYear ],
+        [ sh:description "The version of the CreativeWork embodied by a specified resource." ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path rda:version ],
+        [ sh:description "The party holding the legal copyright to the CreativeWork." ;
+            sh:maxCount 1 ;
+            sh:order 15 ;
+            sh:path rda:copyrightHolder ],
+        [ sh:description "Media type, typically MIME format (see IANA site) of the content e.g. application/zip of a SoftwareApplication binary. In cases where a CreativeWork has several media type representations, 'encoding' can be used to indicate each MediaObject alongside particular fileFormat information. Unregistered or niche file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia entry." ;
+            sh:maxCount 1 ;
+            sh:order 19 ;
+            sh:path rda:fileFormat_(superseded_by_encordingFormat) ],
+        [ sh:description "A person or organization that supports (sponsors) something through some kind of financial contribution." ;
+            sh:maxCount 1 ;
+            sh:order 9 ;
+            sh:path rda:funder ],
+        [ sh:description "A secondary contributor to the CreativeWork or Event." ;
+            sh:maxCount 1 ;
+            sh:order 20 ;
+            sh:path rda:contributor ],
+        [ sh:description "A flag to signal that the publication is accessible for free." ;
+            sh:maxCount 1 ;
+            sh:order 24 ;
+            sh:path rda:isAccessibleForFree ],
+        [ sh:description "The creator/author of this CreativeWork (dataset). This is the same as the Author property for CreativeWork.  (To uniquely identify individuals, use ORCID ID as the value of the sameAs property of the Person type. To uniquely identify institutions and organizations, use ROR ID. )" ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path rda:creator ] ;
+    sh:targetClass rda:CreativeWork .
+
+rda:DataCatalog a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "A technique or technology used in a Dataset (or DataDownload, DataCatalog), corresponding to the method used for measuring the corresponding variable(s)" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path rda:measurementTechnique ] ;
+    sh:targetClass rda:DataCatalog .
+
+rda:DataDowload a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "A technique or technology used in a Dataset (or DataDownload, DataCatalog), corresponding to the method used for measuring the corresponding variable(s)" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path rda:measurementTechnique ] ;
+    sh:targetClass rda:DataDowload .
+
+rda:DataDownload a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "(The file format of the distribution.)" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path rda:distribution.encodingFormat ],
+        [ sh:description "(The link for the download.)" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path rda:distribution.contentUrl ] ;
+    sh:targetClass rda:DataDownload .
+
+rda:Dataset a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "A technique or technology used in a Dataset (or DataDownload, DataCatalog), corresponding to the method used for measuring the corresponding variable(s)" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path rda:measurementTechnique ],
+        [ sh:description "The variableMeasured property can indicate (repeated as necessary) the variables that are measured in some dataset, either described as text or as pairs of identifier and description using PropertyValue.  (The variable that this dataset measures. For example, temperature or pressure.)" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path rda:variableMeasured ],
+        [ sh:description "A data catalog which contains this dataset.  (The catalog to which the dataset belongs.)" ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path rda:includedInDataCatalog ],
+        [ sh:description "A downloadable form of this dataset, at a specific location, in a specific format (The description of the location for download of the dataset and the file format for download.)" ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path rda:distribution ] ;
+    sh:targetClass rda:Dataset .
+
+rda:MediaObject a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "File size in (mega/kilo) bytes." ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path rda:contentSize ],
+        [ sh:description "Actual bytes of the media object, for example the image file or video file." ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path rda:contentURL ] ;
+    sh:targetClass rda:MediaObject .
+
+rda:Schedule a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "This term is proposed for full integration into Schema.org* Defines the frequency at which Events will occur according to a schedule Schedule. The intervals between events should be defined as a Duration of time." ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path rda:repeatFrequency ] ;
+    sh:targetClass rda:Schedule .
+
+rda:Thing a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ),
+        ( rdf:type ) ;
+    sh:property [ sh:description "The subject matter of content" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path rda:subjectOf ],
+        [ sh:description "The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes for more details." ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path rda:identifier ],
+        [ sh:description "A pointer to another, somehow related product (or multiple products)." ;
+            sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path rda:isRelatedTo ],
+        [ sh:description "A descriptive name of the item (e.g. dataset, software, Organization)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path rda:name ],
+        [ sh:description "The language of the content or performance or used in an action.  Please use one of the language codes from the IETF BCP 47 standard." ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path rda:inLanguage ],
+        [ sh:description "A contact point, e.g. email, telephone, address" ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path rda:contactPoint ],
+        [ sh:description "A description of the item." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path rda:description ],
+        [ sh:description "An alias for the item   (Alternative names that have been used to refer to this dataset, such as aliases or abbreviations.)" ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path rda:alternateName ],
+        [ sh:description "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website." ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path rda:sameAs ],
+        [ sh:description "URL of the item. (Location of a page describing the dataset.)" ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path rda:url ] ;
+    sh:targetClass rda:Thing .
+

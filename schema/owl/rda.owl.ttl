@@ -1,0 +1,843 @@
+@prefix B2FIND: <http://example.org/B2FIND/> .
+@prefix CodeMeta: <http://example.org/CodeMeta/> .
+@prefix DATS: <http://example.org/DATS/> .
+@prefix DDI: <http://example.org/DDI/> .
+@prefix Datacite: <http://example.org/Datacite/> .
+@prefix Dataverse: <http://example.org/Dataverse/> .
+@prefix ECRIN: <http://example.org/ECRIN/> .
+@prefix EOSC: <http://example.org/EOSC/> .
+@prefix IAO: <http://purl.obolibrary.org/obo/IAO_> .
+@prefix ISO19115-1: <http://example.org/ISO19115-1/> .
+@prefix bioschemas: <http://example.org/bioschemas/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://example.org/dct/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcterms1: <https://dublincore.org/specifications/dublin-core/dcmi-terms/#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix linkml: <https://w3id.org/linkml/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rda: <https://example.org/rda/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa1: <http://example.org/sosa/> .
+@prefix unknown: <http://example.org/unknown/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+linkml:SubsetDefinition a owl:Class ;
+    rdfs:label "subset_definition" ;
+    skos:definition "the name and description of a subset" .
+
+linkml:TypeDefinition a owl:Class ;
+    rdfs:label "type_definition" ;
+    skos:definition "A data type definition." .
+
+linkml:topValue a owl:DatatypeProperty ;
+    rdfs:label "value" .
+
+<rda> a owl:Ontology ;
+    rdfs:label "rda" ;
+    IAO:0000700 rda:CreativeWork,
+        rda:DataCatalog,
+        rda:DataDowload,
+        rda:DataDownload,
+        rda:Dataset,
+        rda:MediaObject,
+        rda:Schedule,
+        rda:Thing ;
+    dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
+    linkml:generation_date "2022-02-02T17:47:11" ;
+    linkml:metamodel_version "1.7.0" ;
+    linkml:source_file "rda.yaml" ;
+    linkml:source_file_date "2022-02-02T17:47:09" ;
+    linkml:source_file_size 24495 .
+
+rda:CreativeWork a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "CreativeWork" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:isBasedOn ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:editor ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:isPartOf ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:copyrightHolder ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Date ;
+            owl:onProperty rda:datePublished ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:temporalCoverage ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:spatialCoverage ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:dateCreated ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:encodingFormat ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:keywords ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:publisher ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:fileFormat_(superseded_by_encordingFormat) ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:mentions ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:funder ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:subjectOf ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:contributor ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:version ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:hasPart ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:dateModified ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:creator ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:producer ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:license ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:citation ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Boolean ;
+            owl:onProperty rda:isAccessibleForFree ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:copyrightYear ] .
+
+rda:DataCatalog a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "DataCatalog" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:measurementTechnique ] .
+
+rda:DataDowload a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "DataDowload" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:measurementTechnique ] .
+
+rda:DataDownload a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "DataDownload" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:distribution.encodingFormat ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Uriorcurie ;
+            owl:onProperty rda:distribution.contentUrl ] .
+
+rda:Dataset a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Dataset" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:measurementTechnique ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:includedInDataCatalog ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:variableMeasured ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:distribution ] .
+
+rda:MediaObject a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "MediaObject" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Uriorcurie ;
+            owl:onProperty rda:contentURL ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:contentSize ] .
+
+rda:Schedule a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Schedule" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:repeatFrequency ] .
+
+rda:Thing a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label " Thing",
+        "Thing" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:contactPoint ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:description ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Uriorcurie ;
+            owl:onProperty rda:sameAs ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Uriorcurie ;
+            owl:onProperty rda:url ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:inLanguage ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:name ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:isRelatedTo ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:identifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:alternateName ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rda:subjectOf ] .
+
+rda:alternateName a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "alternateName" ;
+    rdfs:range linkml:String ;
+    skos:definition "An alias for the item   (Alternative names that have been used to refer to this dataset, such as aliases or abbreviations.)" ;
+    skos:exactMatch DDI:altTitl,
+        Datacite:titleType,
+        Dataverse:Alternative,
+        <http://example.org/ISO19115-1/MD_Identification/citation//alternateTitle(O)>,
+        bioschemas:alternateName,
+        rdfs:label,
+        dcterms1:alternative .
+
+rda:citation a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "citation" ;
+    rdfs:range linkml:String ;
+    skos:definition "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.  (Identifies academic articles that are recommended by the data provider be cited in addition to the dataset itself. Provide the citation for the dataset itself with other properties, such as name, identifier, creator, and publisher properties. For example, this property can uniquely identify a related academic publication such as a data descriptor, data paper, or an article for which this dataset is supplementary material for.)" ;
+    skos:exactMatch CodeMeta:citation,
+        <http://example.org/DATS/primaryPublication/>,
+        DDI:relPubl(biblCit),
+        Datacite:isReferencedBy,
+        Dataverse:Related,
+        EOSC:citation,
+        <http://example.org/ISO19115-1/MD_Identification/associatedResource//CI_Citation>,
+        bioschemas:citation,
+        dcterms1:bibliographicCitation,
+        dcterms1:isReferencedBy .
+
+rda:contactPoint a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "contactPoint" ;
+    rdfs:range linkml:String ;
+    skos:definition "A contact point, e.g. email, telephone, address" ;
+    skos:exactMatch B2FIND:contactPoint,
+        DDI:contact,
+        ECRIN:Access,
+        <http://example.org/ISO19115-1/MD_Identification/pointOfContact//name>,
+        bioschemas:contactPoint,
+        dct:contactPoint,
+        dcterms1:mediator .
+
+rda:contentSize a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "contentSize" ;
+    rdfs:range linkml:String ;
+    skos:definition "File size in (mega/kilo) bytes." ;
+    skos:exactMatch <http://example.org/Datacite/Size(O)*>,
+        EOSC:size(R),
+        <http://example.org/ISO19115-1/MD_Metadata/distributionInfo//transferOptions//transferSize>,
+        dct:byteSize,
+        dct:byteSize(O),
+        unknown:collSize .
+
+rda:contentURL a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "contentURL" ;
+    rdfs:range linkml:Uriorcurie ;
+    skos:definition "Actual bytes of the media object, for example the image file or video file." ;
+    skos:exactMatch DATS:access,
+        <http://example.org/ISO19115-1/MD_Metadata/distributionInfo//online//linkage>,
+        dcat:accessURL,
+        dcat:downloadURL .
+
+rda:contributor a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "contributor" ;
+    rdfs:range linkml:String ;
+    skos:definition "A secondary contributor to the CreativeWork or Event." ;
+    skos:exactMatch B2FIND:Contributor,
+        CodeMeta:Contributor,
+        DDI:contributor,
+        Datacite:Contributor,
+        Dataverse:Contributor,
+        ECRIN:Contributors,
+        <http://example.org/ISO19115-1/MD_Identification/citation//citedResponsibleParty//name>,
+        dcterms1:contributor .
+
+rda:copyrightHolder a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "copyrightHolder" ;
+    rdfs:range linkml:String ;
+    skos:definition "The party holding the legal copyright to the CreativeWork." ;
+    skos:exactMatch CodeMeta:copyrightHolder,
+        <http://example.org/ISO19115-1/MD_Identification/resourceConstaints//responsibleParty//name>,
+        dct:rightsHolder,
+        dcterms1:rightsHolder .
+
+rda:copyrightYear a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "copyrightYear" ;
+    rdfs:range linkml:String ;
+    skos:definition "The year during which the claimed copyright for the CreativeWork was first asserted." ;
+    skos:exactMatch CodeMeta:copyrightYear,
+        Datacite:Copyrighted,
+        <http://example.org/ISO19115-1/MD_Identification/citation//date>,
+        dcterms1:dateCopyrighted .
+
+rda:creator a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "creator" ;
+    rdfs:range linkml:String ;
+    skos:definition "The creator/author of this CreativeWork (dataset). This is the same as the Author property for CreativeWork.  (To uniquely identify individuals, use ORCID ID as the value of the sameAs property of the Person type. To uniquely identify institutions and organizations, use ROR ID. )" ;
+    skos:exactMatch B2FIND:Creator,
+        CodeMeta:author,
+        DATS:creator,
+        <http://example.org/DDI/AuthEnty*>,
+        <http://example.org/Dataverse/Author;>,
+        ECRIN:Creators,
+        EOSC:creator,
+        <http://example.org/ISO19115-1/MD_Identification/citation//citedResponsibleParty//name>,
+        bioschemas:creator,
+        dct:creator,
+        dcterms1:creator .
+
+rda:dateCreated a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "dateCreated" ;
+    rdfs:range linkml:String ;
+    skos:definition "The date on which the CreativeWork was created or the item was added to a DataFeed." ;
+    skos:exactMatch CodeMeta:datedCreated,
+        DDI:created,
+        Datacite:Date,
+        Dataverse:Date,
+        ECRIN:Dates,
+        EOSC:dateCreated,
+        <http://example.org/ISO19115-1/MD_Metadata/dataInfo>,
+        bioschemas:dateCreated,
+        dct:created,
+        dcterms1:created,
+        dcterms1:created(O) .
+
+rda:dateModified a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "dateModified" ;
+    rdfs:range linkml:String ;
+    skos:definition "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed." ;
+    skos:exactMatch CodeMeta:dateModified,
+        DDI:version,
+        Datacite:Date,
+        Dataverse:Version,
+        ECRIN:Dates,
+        EOSC:dateModified,
+        ISO19115-1:same,
+        bioschemas:dateModified,
+        dct:modified,
+        dcterms1:modified .
+
+rda:datePublished a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "datePublished" ;
+    rdfs:range linkml:Date ;
+    skos:definition "Date of first broadcast/publication." ;
+    skos:exactMatch B2FIND:PublicationYear,
+        CodeMeta:datePublished,
+        DDI:distDate,
+        Datacite:PublicationYear,
+        Dataverse:Publication,
+        ECRIN:Creation,
+        EOSC:datePublished,
+        ISO19115-1:same,
+        dct:issued,
+        dcterms1:dateAccepted .
+
+rda:description a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "description" ;
+    rdfs:range linkml:String ;
+    skos:definition "A description of the item." ;
+    skos:exactMatch B2FIND:Description,
+        CodeMeta:description,
+        DATS:description,
+        DDI:abstract,
+        Datacite:Description,
+        <http://example.org/Dataverse/Description;>,
+        ECRIN:Description,
+        EOSC:description,
+        <http://example.org/ISO19115-1/MD_Identification/abstract>,
+        bioschemas:description,
+        dct:description,
+        dcterms1:description .
+
+rda:distribution a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "distribution" ;
+    rdfs:range linkml:String ;
+    skos:definition "A downloadable form of this dataset, at a specific location, in a specific format (The description of the location for download of the dataset and the file format for download.)" ;
+    skos:exactMatch DATS:distribution,
+        DDI:distrbtr,
+        Datacite:distribution,
+        EOSC:distribution,
+        <http://example.org/ISO19115-1/MD_Metadata/distributionInfo/MD_Distribution/transferOptions>,
+        bioschemas:distribution,
+        dct:distribution,
+        dcat:distribution .
+
+rda:distribution.contentUrl a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "distribution.contentUrl" ;
+    rdfs:range linkml:Uriorcurie ;
+    skos:definition "(The link for the download.)" ;
+    skos:exactMatch EOSC:accessURL,
+        <http://example.org/ISO19115-1/MD_Metadata/distributionInfo//online//linkage>,
+        bioschemas:distribution,
+        dct:accessURL,
+        dcat:downloadURL .
+
+rda:distribution.encodingFormat a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "distribution.encodingFormat" ;
+    rdfs:range linkml:String ;
+    skos:definition "(The file format of the distribution.)" ;
+    skos:exactMatch Datacite:format,
+        <http://example.org/ISO19115-1/MD_Metadata/distributionInfo/MD_Distribution/transferOptions//distributionFormat>,
+        bioschemas:encordingFormat,
+        dcat:mediaType,
+        dcterms1:format .
+
+rda:editor a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "editor" ;
+    rdfs:range linkml:String ;
+    skos:definition "Specifies the Person who edited the CreativeWork." ;
+    skos:exactMatch CodeMeta:editor,
+        <http://example.org/ISO19115-1/MD_Identification/citation//citedResponsibleParty//name> .
+
+rda:encodingFormat a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "encodingFormat" ;
+    rdfs:range linkml:String ;
+    skos:definition "Media type typically expressed using a MIME format" ;
+    skos:exactMatch CodeMeta:encordingFormat,
+        DATS:distribution.format,
+        DDI:format,
+        <http://example.org/Datacite/Format(O)*>,
+        EOSC:format,
+        <http://example.org/ISO19115-1/MD_Metadata/distributionInfo//transferOptions//distributionFormat//medium//name>,
+        dct:format .
+
+rda:fileFormat_(superseded_by_encordingFormat) a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "fileFormat (superseded by encordingFormat)" ;
+    rdfs:range linkml:String ;
+    skos:definition "Media type, typically MIME format (see IANA site) of the content e.g. application/zip of a SoftwareApplication binary. In cases where a CreativeWork has several media type representations, 'encoding' can be used to indicate each MediaObject alongside particular fileFormat information. Unregistered or niche file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia entry." ;
+    skos:exactMatch CodeMeta:fileFormat,
+        DDI:format,
+        Datacite:Format,
+        EOSC:format,
+        dcat:mediaType .
+
+rda:funder a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "funder" ;
+    rdfs:range linkml:String ;
+    skos:definition "A person or organization that supports (sponsors) something through some kind of financial contribution." ;
+    skos:exactMatch CodeMeta:funder,
+        DATS:acknowledges,
+        DDI:grantNo,
+        Datacite:contributor,
+        Dataverse:Grant,
+        <http://example.org/ISO19115-1/MD_Identification/citation//citedResponsibleParty//name>,
+        <http://example.org/ISO19115-1/MD_Identification/credit>,
+        dcterms1:contributor .
+
+rda:hasPart a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "hasPart" ;
+    rdfs:range linkml:String ;
+    skos:definition "Indicates a CreativeWork that is (in some sense) a part of this CreativeWork. Reverse property isPartOf" ;
+    skos:exactMatch CodeMeta:hasPart,
+        DATS:hasPart,
+        DDI:hasPart,
+        Datacite:hasPart,
+        EOSC:includes(Dataset),
+        <http://example.org/ISO19115-1/MD_Identifcation/associatedResource/name/CI_Citation>,
+        dct:hasPart,
+        dcterms1:hasPart .
+
+rda:identifier a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "identifier" ;
+    rdfs:range linkml:String ;
+    skos:definition "The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes for more details." ;
+    skos:exactMatch B2FIND:Identifier,
+        CodeMeta:identifier,
+        DATS:identifier,
+        DDI:IDNo,
+        Datacite:Identifier,
+        Dataverse:Dataset,
+        ECRIN:DOI,
+        EOSC:identifier,
+        <http://example.org/ISO19115-1/MD_Identification/citation//identifier//code>,
+        bioschemas:identifier,
+        dct:identifier,
+        dcterms1:identifier .
+
+rda:inLanguage a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "inLanguage" ;
+    rdfs:range linkml:String ;
+    skos:definition "The language of the content or performance or used in an action.  Please use one of the language codes from the IETF BCP 47 standard." ;
+    skos:exactMatch B2FIND:Language,
+        DDI:language,
+        Datacite:Language,
+        Dataverse:Language,
+        ECRIN:Language,
+        <http://example.org/ISO19115-1/MD_Metadata/language>,
+        dct:language,
+        dcterms1:language .
+
+rda:includedInDataCatalog a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "includedInDataCatalog" ;
+    rdfs:range linkml:String ;
+    skos:definition "A data catalog which contains this dataset.  (The catalog to which the dataset belongs.)" ;
+    skos:exactMatch DATS:distribution.storedIn,
+        Datacite:publisher,
+        EOSC:includedIn(R),
+        <http://example.org/ISO19115-1/MD_Identification/associatedResource/name/CI_Citation>,
+        bioschemas:includedInDataCatalog,
+        dcterms1:isPartOf .
+
+rda:isAccessibleForFree a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "isAccessibleForFree" ;
+    rdfs:range linkml:Boolean ;
+    skos:definition "A flag to signal that the publication is accessible for free." ;
+    skos:exactMatch CodeMeta:isAccessibleForFree,
+        DDI:avlStatus .
+
+rda:isBasedOn a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "isBasedOn" ;
+    rdfs:range linkml:String ;
+    skos:definition "A resource from which this work is derived or from which it is a modification or adaption" ;
+    skos:exactMatch DDI:derivation,
+        Datacite:isContinuedBy,
+        <http://example.org/ISO19115-1/MD_Metadata/resourceLineage//source//sourceCitation>,
+        dct:source(O),
+        dc:source .
+
+rda:isPartOf a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "isPartOf" ;
+    rdfs:range linkml:String ;
+    skos:definition "Indicates a CreativeWork that this CreativeWork is (in some sense) part of. Reverse property hasPart.  If the dataset is a collection of smaller datasets, use the hasPart property to denote such relationship. Conversly, if the dataset is part of a larger dataset, use isPartOf." ;
+    skos:exactMatch CodeMeta:isPartOf,
+        DDI:isPartOf,
+        Datacite:isPartOf,
+        EOSC:includedIn(Dataset),
+        <http://example.org/ISO19115-1/MD_Identifcation/associatedResource/name/CI_Citation>,
+        dct:isPartOf,
+        dcterms1:isPartOf .
+
+rda:isRelatedTo a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "isRelatedTo" ;
+    rdfs:range linkml:String ;
+    skos:definition "A pointer to another, somehow related product (or multiple products)." ;
+    skos:exactMatch Datacite:relationType,
+        <http://example.org/ISO19115-1/MD_Identifcation/associatedResource/name/CI_Citation>,
+        dct:relation .
+
+rda:keywords a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "keywords" ;
+    rdfs:range linkml:String ;
+    skos:definition "Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas." ;
+    skos:exactMatch CodeMeta:keywords,
+        DATS:keywords,
+        DDI:keywords,
+        Dataverse:Subject,
+        EOSC:keywords,
+        <http://example.org/ISO19115-1/MD_Identification/descriptiveKeywords//keyword>,
+        bioschemas:keywords,
+        dct:keyword,
+        dcat:keyword,
+        dcterms1:subject .
+
+rda:license a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "license" ;
+    rdfs:range linkml:String ;
+    skos:definition "A license document that applies to this content, typically indicated by URL.  (A license under which the dataset is distributed.)" ;
+    skos:exactMatch B2FIND:Rights,
+        CodeMeta:license,
+        DATS:licenses,
+        DDI:rights,
+        ECRIN:Rights,
+        EOSC:license,
+        <http://example.org/ISO19115-1/MD_Identification/resourceConstraints//reference/CI_Citation,>,
+        bioschemas:license,
+        dct:license,
+        dcterms1:rights .
+
+rda:mentions a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "mentions" ;
+    rdfs:range linkml:String ;
+    skos:definition "Indicates that the CreativeWork contains a reference to, but is not necessarily about a concept." ;
+    skos:exactMatch <http://example.org/ISO19115-1/MD_Identifcation/associatedResource/name/CI_Citation>,
+        dct:relation,
+        dcterms1:relation .
+
+rda:name a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "name" ;
+    rdfs:range linkml:String ;
+    skos:definition "A descriptive name of the item (e.g. dataset, software, Organization)." ;
+    skos:exactMatch B2FIND:Title,
+        CodeMeta:name,
+        DATS:title,
+        DDI:titl,
+        Datacite:Title,
+        Dataverse:Title,
+        ECRIN:Object,
+        EOSC:name,
+        <http://example.org/ISO19115-1/MD_Identification/citation//title(M)>,
+        bioschemas:name,
+        dct:title,
+        dcterms1:title .
+
+rda:producer a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "producer" ;
+    rdfs:range linkml:String ;
+    skos:definition "The person or organization who produced the work (e.g. music album, movie, tv/radio series etc.)." ;
+    skos:exactMatch CodeMeta:producer,
+        DDI:producer,
+        Datacite:contributor,
+        Dataverse:Producer,
+        <http://example.org/ISO19115-1/MD_Identification/citation//citedResponsibleParty//name>,
+        dcterms1:contributor .
+
+rda:publisher a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "publisher" ;
+    rdfs:range linkml:String ;
+    skos:definition "The publisher of the creative work" ;
+    skos:exactMatch B2FIND:Publisher,
+        CodeMeta:publisher,
+        DDI:publisher,
+        Datacite:Publisher,
+        Dataverse:Dataset,
+        <http://example.org/ECRIN/Publisher/>,
+        <http://example.org/ISO19115-1/MD_Identification/citation//citedResponsibleParty//name>,
+        dct:publisher,
+        dcterms1:publisher .
+
+rda:repeatFrequency a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "repeatFrequency" ;
+    rdfs:range linkml:String ;
+    skos:definition "This term is proposed for full integration into Schema.org* Defines the frequency at which Events will occur according to a schedule Schedule. The intervals between events should be defined as a Duration of time." ;
+    skos:exactMatch <http://example.org/ISO19115-1/MD_Metadata/distributionInfo//transferOptions//transferFrequency>,
+        dcterms1:accrualPeriodicity .
+
+rda:sameAs a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "sameAs" ;
+    rdfs:range linkml:Uriorcurie ;
+    skos:definition "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website." ;
+    skos:exactMatch CodeMeta:sameAs,
+        DATS:alternateIdentifier,
+        Datacite:RelatedIdentifer(R),
+        Dataverse:Alternative,
+        ECRIN:Related,
+        EOSC:sameAs,
+        <http://example.org/ISO19115-1/MD_Identification/citation//identifier//code>,
+        owl:sameAs .
+
+rda:spatialCoverage a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "spatialCoverage" ;
+    rdfs:range linkml:String ;
+    skos:definition "The spatialCoverage of a CreativeWork indicates the place(s) which are the focus of the content.  (You can provide a single point that describes the spatial aspect of the dataset. Only include this property if the dataset has a spatial dimension.)" ;
+    skos:exactMatch B2FIND:Spatial,
+        DDI:geogCover,
+        Datacite:GeoLocation(R),
+        EOSC:spatialCoverage,
+        <http://example.org/ISO19115-1/MD_Identification/extent//geographicElement>,
+        dct:spatial,
+        dcterms1:coverage,
+        dcterms1:spatial .
+
+rda:temporalCoverage a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "temporalCoverage" ;
+    rdfs:range linkml:String ;
+    skos:definition "The temporalCoverage of a CreativeWork indicates the period that the content applies to  (The data in the dataset covers a specific time interval. Only include this property if the dataset has a temporal dimension.)" ;
+    skos:exactMatch B2FIND:Temporal,
+        DDI:temporal,
+        Datacite:Date,
+        Dataverse:Time,
+        EOSC:temporalCoverage,
+        <http://example.org/ISO19115-1/MD_Identification/extent//temporalElement/extent/TM_Primitive>,
+        dct:temporal,
+        dcterms1:temporal .
+
+rda:url a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "url" ;
+    rdfs:range linkml:Uriorcurie ;
+    skos:definition "URL of the item. (Location of a page describing the dataset.)" ;
+    skos:exactMatch CodeMeta:url,
+        DATS:identifier,
+        DDI:accsPlac,
+        Datacite:valueURL,
+        EOSC:url,
+        <http://example.org/ISO19115-1/distributionInfo//transferOptions//onLine//linkage>,
+        bioschemas:url,
+        dc:identifier,
+        dcat:endPointURL,
+        foaf:homepage .
+
+rda:variableMeasured a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "variableMeasured" ;
+    rdfs:range linkml:String ;
+    skos:definition "The variableMeasured property can indicate (repeated as necessary) the variables that are measured in some dataset, either described as text or as pairs of identifier and description using PropertyValue.  (The variable that this dataset measures. For example, temperature or pressure.)" ;
+    skos:exactMatch DATS:dimensions,
+        DDI:measure,
+        EOSC:variableMeasured,
+        <http://example.org/ISO19115-1/MD_Metadata/contentInfo//featureCatalogue>,
+        bioschemas:variablesMeasured,
+        sosa1:observedProperty .
+
+rda:version a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "version" ;
+    rdfs:range linkml:String ;
+    skos:definition "The version of the CreativeWork embodied by a specified resource." ;
+    skos:exactMatch CodeMeta:version,
+        DATS:version,
+        DDI:version,
+        Datacite:Version,
+        Dataverse:Version,
+        ECRIN:version,
+        EOSC:version,
+        <http://example.org/ISO19115-1/MD_Identification/citation//edition>,
+        bioschemas:version,
+        owl:versionInfo .
+
+rda:subjectOf a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "subjectOf" ;
+    rdfs:range linkml:String ;
+    skos:definition "The subject matter of content" ;
+    skos:exactMatch <http://example.org/Datacite/Subject*>,
+        <http://example.org/ISO19115-1/MD_Identification/topicCategory>,
+        dcat:theme .
+
+rda:measurementTechnique a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "measurementTechnique" ;
+    rdfs:range linkml:String ;
+    skos:definition "A technique or technology used in a Dataset (or DataDownload, DataCatalog), corresponding to the method used for measuring the corresponding variable(s)" ;
+    skos:exactMatch DDI:instrumentDevelopment,
+        EOSC:measurementTechniques,
+        <http://example.org/ISO19115-1/MD_Metadata/resourceLineage//statement>,
+        bioschemas:measurementTechnique,
+        sosa1:usedProcedure .
+
+linkml:ClassDefinition a owl:Class ;
+    rdfs:label "class_definition" ;
+    skos:definition "the definition of a class or interface" .
+
+linkml:SlotDefinition a owl:Class ;
+    rdfs:label "slot_definition" ;
+    skos:definition "the definition of a property or a slot" .
+
+

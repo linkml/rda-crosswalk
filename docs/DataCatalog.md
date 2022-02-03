@@ -1,0 +1,19 @@
+
+# Class: DataCatalog
+
+
+
+
+URI: [rda:DataCatalog](https://example.org/rda/DataCatalog)
+
+
+[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[DataCatalog&#124;measurementTechnique:string%20%3F])](https://yuml.me/diagram/nofunky;dir:TB/class/[DataCatalog&#124;measurementTechnique:string%20%3F])
+
+## Attributes
+
+
+### Own
+
+ * [measurementTechnique](measurementTechnique.md)  <sub>0..1</sub>
+     * Description: A technique or technology used in a Dataset (or DataDownload, DataCatalog), corresponding to the method used for measuring the corresponding variable(s)
+     * Range: [String](types/String.md)

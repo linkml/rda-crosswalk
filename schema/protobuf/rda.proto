@@ -1,0 +1,73 @@
+message Thing
+ {
+  optional subjectOf String = 1
+ }
+message CreativeWork
+ {
+  optional citation String = 1
+  optional keywords String = 2
+  optional license String = 3
+  optional creator String = 4
+  optional isPartOf String = 5
+  optional hasPart String = 6
+  optional version String = 7
+  optional temporalCoverage String = 8
+  optional spatialCoverage String = 9
+  optional funder String = 10
+  optional publisher String = 11
+  optional subjectOf String = 12
+  optional dateCreated String = 13
+  optional datePublished Date = 14
+  optional dateModified String = 15
+  optional copyrightHolder String = 16
+  optional mentions String = 17
+  optional isBasedOn String = 18
+  optional encodingFormat String = 19
+  optional fileFormat(supersededByEncordingFormat) String = 20
+  optional contributor String = 21
+  optional producer String = 22
+  optional editor String = 23
+  optional copyrightYear String = 24
+  optional isAccessibleForFree Boolean = 25
+ }
+message DataCatalog
+ {
+  optional measurementTechnique String = 1
+ }
+message DataDowload
+ {
+  optional measurementTechnique String = 1
+ }
+message DataDownload
+ {
+  optional distribution.contentUrl Uriorcurie = 1
+  optional distribution.encodingFormat String = 2
+ }
+message Dataset
+ {
+  optional measurementTechnique String = 1
+  optional variableMeasured String = 2
+  optional includedInDataCatalog String = 3
+  optional distribution String = 4
+ }
+message MediaObject
+ {
+  optional contentURL Uriorcurie = 1
+  optional contentSize String = 2
+ }
+message Schedule
+ {
+  optional repeatFrequency String = 1
+ }
+message Thing
+ {
+  description String = 1
+  name String = 2
+  optional identifier String = 3
+  optional alternateName String = 4
+  optional sameAs Uriorcurie = 5
+  optional url Uriorcurie = 6
+  optional contactPoint String = 7
+  optional inLanguage String = 8
+  optional isRelatedTo String = 9
+ }

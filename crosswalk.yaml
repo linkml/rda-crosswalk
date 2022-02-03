@@ -1,0 +1,824 @@
+name: rda
+id: rda
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  rda:
+    prefix_prefix: rda
+    prefix_reference: https://example.org/rda/
+  dcat:
+    prefix_prefix: dcat
+    prefix_reference: http://www.w3.org/ns/dcat#
+  DDI:
+    prefix_prefix: DDI
+    prefix_reference: http://example.org/DDI/
+  unknown:
+    prefix_prefix: unknown
+    prefix_reference: http://example.org/unknown/
+  B2FIND:
+    prefix_prefix: B2FIND
+    prefix_reference: http://example.org/B2FIND/
+  sosa:
+    prefix_prefix: sosa
+    prefix_reference: http://example.org/sosa/
+  DATS:
+    prefix_prefix: DATS
+    prefix_reference: http://example.org/DATS/
+  dc:
+    prefix_prefix: dc
+    prefix_reference: http://purl.org/dc/elements/1.1/
+  ISO19115-1:
+    prefix_prefix: ISO19115-1
+    prefix_reference: http://example.org/ISO19115-1/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: http://example.org/bioschemas/
+  ECRIN:
+    prefix_prefix: ECRIN
+    prefix_reference: http://example.org/ECRIN/
+  rdfs:
+    prefix_prefix: rdfs
+    prefix_reference: http://www.w3.org/2000/01/rdf-schema#
+  Datacite:
+    prefix_prefix: Datacite
+    prefix_reference: http://example.org/Datacite/
+  Dataverse:
+    prefix_prefix: Dataverse
+    prefix_reference: http://example.org/Dataverse/
+  foaf:
+    prefix_prefix: foaf
+    prefix_reference: http://xmlns.com/foaf/0.1/
+  dct:
+    prefix_prefix: dct
+    prefix_reference: http://example.org/dct/
+  CodeMeta:
+    prefix_prefix: CodeMeta
+    prefix_reference: http://example.org/CodeMeta/
+  dcterms:
+    prefix_prefix: dcterms
+    prefix_reference: https://dublincore.org/specifications/dublin-core/dcmi-terms/#
+  EOSC:
+    prefix_prefix: EOSC
+    prefix_reference: http://example.org/EOSC/
+  owl:
+    prefix_prefix: owl
+    prefix_reference: http://www.w3.org/2002/07/owl#
+default_prefix: rda
+default_range: string
+slots:
+  description:
+    name: description
+    exact_mappings:
+    - dct:description
+    - dcterms:description
+    - Datacite:Description
+    - ISO19115-1:MD_Identification/abstract
+    - EOSC:description
+    - Dataverse:Description;
+    - DATS:description
+    - dcterms:description
+    - bioschemas:description
+    - B2FIND:Description
+    - DDI:abstract
+    - ECRIN:Description
+    - CodeMeta:description
+    description: A description of the item.
+    from_schema: rda
+    range: string
+    required: true
+  name:
+    name: name
+    exact_mappings:
+    - dct:title
+    - dcterms:title
+    - Datacite:Title
+    - ISO19115-1:MD_Identification/citation//title(M)
+    - EOSC:name
+    - Dataverse:Title
+    - DATS:title
+    - dcterms:title
+    - bioschemas:name
+    - B2FIND:Title
+    - DDI:titl
+    - ECRIN:Object
+    - CodeMeta:name
+    description: A descriptive name of the item (e.g. dataset, software, Organization).
+    from_schema: rda
+    range: string
+    required: true
+  distribution.contentUrl:
+    name: distribution.contentUrl
+    exact_mappings:
+    - dct:accessURL
+    - dcat:downloadURL
+    - ISO19115-1:MD_Metadata/distributionInfo//online//linkage
+    - EOSC:accessURL
+    - bioschemas:distribution
+    description: (The link for the download.)
+    from_schema: rda
+    range: uriorcurie
+  identifier:
+    name: identifier
+    exact_mappings:
+    - dct:identifier
+    - dcterms:identifier
+    - Datacite:Identifier
+    - ISO19115-1:MD_Identification/citation//identifier//code
+    - EOSC:identifier
+    - Dataverse:Dataset
+    - DATS:identifier
+    - bioschemas:identifier
+    - B2FIND:Identifier
+    - DDI:IDNo
+    - ECRIN:DOI
+    - CodeMeta:identifier
+    description: The identifier property represents any kind of identifier for any
+      kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated
+      properties for representing many of these, either as textual strings or as URL
+      (URI) links. See background notes for more details.
+    from_schema: rda
+    range: string
+  alternateName:
+    name: alternateName
+    exact_mappings:
+    - rdfs:label
+    - Datacite:titleType
+    - ISO19115-1:MD_Identification/citation//alternateTitle(O)
+    - Dataverse:Alternative
+    - dcterms:alternative
+    - bioschemas:alternateName
+    - DDI:altTitl
+    description: An alias for the item   (Alternative names that have been used to
+      refer to this dataset, such as aliases or abbreviations.)
+    from_schema: rda
+    range: string
+  sameAs:
+    name: sameAs
+    exact_mappings:
+    - owl:sameAs
+    - Datacite:RelatedIdentifer(R)
+    - ISO19115-1:MD_Identification/citation//identifier//code
+    - EOSC:sameAs
+    - Dataverse:Alternative
+    - DATS:alternateIdentifier
+    - ECRIN:Related
+    - CodeMeta:sameAs
+    description: URL of a reference Web page that unambiguously indicates the item's
+      identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official
+      website.
+    from_schema: rda
+    range: uriorcurie
+  url:
+    name: url
+    exact_mappings:
+    - foaf:homepage
+    - dcat:endPointURL
+    - Datacite:valueURL
+    - ISO19115-1:distributionInfo//transferOptions//onLine//linkage
+    - EOSC:url
+    - DATS:identifier
+    - dc:identifier
+    - bioschemas:url
+    - DDI:accsPlac
+    - CodeMeta:url
+    description: URL of the item. (Location of a page describing the dataset.)
+    from_schema: rda
+    range: uriorcurie
+  citation:
+    name: citation
+    exact_mappings:
+    - dcterms:bibliographicCitation
+    - Datacite:isReferencedBy
+    - ISO19115-1:MD_Identification/associatedResource//CI_Citation
+    - EOSC:citation
+    - Dataverse:Related
+    - DATS:primaryPublication/
+    - dcterms:isReferencedBy
+    - bioschemas:citation
+    - DDI:relPubl(biblCit)
+    - CodeMeta:citation
+    description: A citation or reference to another creative work, such as another
+      publication, web page, scholarly article, etc.  (Identifies academic articles
+      that are recommended by the data provider be cited in addition to the dataset
+      itself. Provide the citation for the dataset itself with other properties, such
+      as name, identifier, creator, and publisher properties. For example, this property
+      can uniquely identify a related academic publication such as a data descriptor,
+      data paper, or an article for which this dataset is supplementary material for.)
+    from_schema: rda
+    range: string
+  keywords:
+    name: keywords
+    exact_mappings:
+    - dct:keyword
+    - dcat:keyword
+    - dcterms:subject
+    - ISO19115-1:MD_Identification/descriptiveKeywords//keyword
+    - EOSC:keywords
+    - Dataverse:Subject
+    - DATS:keywords
+    - dcterms:subject
+    - bioschemas:keywords
+    - DDI:keywords
+    - CodeMeta:keywords
+    description: Keywords or tags used to describe this content. Multiple entries
+      in a keywords list are typically delimited by commas.
+    from_schema: rda
+    range: string
+  license:
+    name: license
+    exact_mappings:
+    - dct:license
+    - dct:license
+    - dcterms:rights
+    - ISO19115-1:MD_Identification/resourceConstraints//reference/CI_Citation,
+    - EOSC:license
+    - DATS:licenses
+    - dcterms:rights
+    - bioschemas:license
+    - B2FIND:Rights
+    - DDI:rights
+    - ECRIN:Rights
+    - CodeMeta:license
+    description: A license document that applies to this content, typically indicated
+      by URL.  (A license under which the dataset is distributed.)
+    from_schema: rda
+    range: string
+  creator:
+    name: creator
+    exact_mappings:
+    - dct:creator
+    - dcterms:creator
+    - dcterms:creator
+    - ISO19115-1:MD_Identification/citation//citedResponsibleParty//name
+    - EOSC:creator
+    - Dataverse:Author;
+    - DATS:creator
+    - dcterms:creator
+    - bioschemas:creator
+    - B2FIND:Creator
+    - DDI:AuthEnty*
+    - ECRIN:Creators
+    - CodeMeta:author
+    description: The creator/author of this CreativeWork (dataset). This is the same
+      as the Author property for CreativeWork.  (To uniquely identify individuals,
+      use ORCID ID as the value of the sameAs property of the Person type. To uniquely
+      identify institutions and organizations, use ROR ID. )
+    from_schema: rda
+    range: string
+  isPartOf:
+    name: isPartOf
+    exact_mappings:
+    - dct:isPartOf
+    - dcterms:isPartOf
+    - Datacite:isPartOf
+    - ISO19115-1:MD_Identifcation/associatedResource/name/CI_Citation
+    - EOSC:includedIn(Dataset)
+    - dcterms:isPartOf
+    - DDI:isPartOf
+    - CodeMeta:isPartOf
+    description: Indicates a CreativeWork that this CreativeWork is (in some sense)
+      part of. Reverse property hasPart.  If the dataset is a collection of smaller
+      datasets, use the hasPart property to denote such relationship. Conversly, if
+      the dataset is part of a larger dataset, use isPartOf.
+    from_schema: rda
+    range: string
+  hasPart:
+    name: hasPart
+    exact_mappings:
+    - dct:hasPart
+    - dcterms:hasPart
+    - Datacite:hasPart
+    - ISO19115-1:MD_Identifcation/associatedResource/name/CI_Citation
+    - EOSC:includes(Dataset)
+    - DATS:hasPart
+    - dcterms:hasPart
+    - DDI:hasPart
+    - CodeMeta:hasPart
+    description: Indicates a CreativeWork that is (in some sense) a part of this CreativeWork.
+      Reverse property isPartOf
+    from_schema: rda
+    range: string
+  version:
+    name: version
+    exact_mappings:
+    - owl:versionInfo
+    - owl:versionInfo
+    - Datacite:Version
+    - ISO19115-1:MD_Identification/citation//edition
+    - EOSC:version
+    - Dataverse:Version
+    - DATS:version
+    - bioschemas:version
+    - DDI:version
+    - ECRIN:version
+    - CodeMeta:version
+    description: The version of the CreativeWork embodied by a specified resource.
+    from_schema: rda
+    range: string
+  temporalCoverage:
+    name: temporalCoverage
+    exact_mappings:
+    - dct:temporal
+    - dcterms:temporal
+    - Datacite:Date
+    - ISO19115-1:MD_Identification/extent//temporalElement/extent/TM_Primitive
+    - EOSC:temporalCoverage
+    - Dataverse:Time
+    - dcterms:temporal
+    - B2FIND:Temporal
+    - DDI:temporal
+    description: The temporalCoverage of a CreativeWork indicates the period that
+      the content applies to  (The data in the dataset covers a specific time interval.
+      Only include this property if the dataset has a temporal dimension.)
+    from_schema: rda
+    range: string
+  spatialCoverage:
+    name: spatialCoverage
+    exact_mappings:
+    - dct:spatial
+    - dcterms:spatial
+    - Datacite:GeoLocation(R)
+    - ISO19115-1:MD_Identification/extent//geographicElement
+    - EOSC:spatialCoverage
+    - dcterms:coverage
+    - B2FIND:Spatial
+    - DDI:geogCover
+    description: The spatialCoverage of a CreativeWork indicates the place(s) which
+      are the focus of the content.  (You can provide a single point that describes
+      the spatial aspect of the dataset. Only include this property if the dataset
+      has a spatial dimension.)
+    from_schema: rda
+    range: string
+  measurementTechnique:
+    name: measurementTechnique
+    exact_mappings:
+    - sosa:usedProcedure
+    - ISO19115-1:MD_Metadata/resourceLineage//statement
+    - EOSC:measurementTechniques
+    - bioschemas:measurementTechnique
+    - DDI:instrumentDevelopment
+    - sosa:usedProcedure
+    - ISO19115-1:MD_Metadata/resourceLineage//statement
+    - EOSC:measurementTechniques
+    - bioschemas:measurementTechnique
+    - DDI:instrumentDevelopment
+    - sosa:usedProcedure
+    - ISO19115-1:MD_Metadata/resourceLineage//statement
+    - EOSC:measurementTechniques
+    - bioschemas:measurementTechnique
+    - DDI:instrumentDevelopment
+    description: A technique or technology used in a Dataset (or DataDownload, DataCatalog),
+      corresponding to the method used for measuring the corresponding variable(s)
+    from_schema: rda
+    range: string
+  variableMeasured:
+    name: variableMeasured
+    exact_mappings:
+    - sosa:observedProperty
+    - ISO19115-1:MD_Metadata/contentInfo//featureCatalogue
+    - EOSC:variableMeasured
+    - DATS:dimensions
+    - bioschemas:variablesMeasured
+    - DDI:measure
+    description: The variableMeasured property can indicate (repeated as necessary)
+      the variables that are measured in some dataset, either described as text or
+      as pairs of identifier and description using PropertyValue.  (The variable that
+      this dataset measures. For example, temperature or pressure.)
+    from_schema: rda
+    range: string
+  includedInDataCatalog:
+    name: includedInDataCatalog
+    exact_mappings:
+    - dcterms:isPartOf
+    - Datacite:publisher
+    - ISO19115-1:MD_Identification/associatedResource/name/CI_Citation
+    - EOSC:includedIn(R)
+    - DATS:distribution.storedIn
+    - dcterms:isPartOf
+    - bioschemas:includedInDataCatalog
+    description: A data catalog which contains this dataset.  (The catalog to which
+      the dataset belongs.)
+    from_schema: rda
+    range: string
+  distribution:
+    name: distribution
+    exact_mappings:
+    - dct:distribution
+    - dcat:distribution
+    - Datacite:distribution
+    - ISO19115-1:MD_Metadata/distributionInfo/MD_Distribution/transferOptions
+    - EOSC:distribution
+    - DATS:distribution
+    - bioschemas:distribution
+    - DDI:distrbtr
+    description: A downloadable form of this dataset, at a specific location, in a
+      specific format (The description of the location for download of the dataset
+      and the file format for download.)
+    from_schema: rda
+    range: string
+  distribution.encodingFormat:
+    name: distribution.encodingFormat
+    exact_mappings:
+    - dcterms:format
+    - dcat:mediaType
+    - Datacite:format
+    - ISO19115-1:MD_Metadata/distributionInfo/MD_Distribution/transferOptions//distributionFormat
+    - dcterms:format
+    - bioschemas:encordingFormat
+    description: (The file format of the distribution.)
+    from_schema: rda
+  funder:
+    name: funder
+    exact_mappings:
+    - dcterms:contributor
+    - Datacite:contributor
+    - ISO19115-1:MD_Identification/credit
+    - Dataverse:Grant
+    - DATS:acknowledges
+    - dcterms:contributor
+    - DDI:grantNo
+    - CodeMeta:funder
+    - dcterms:contributor
+    - dcterms:contributor
+    - Datacite:contributor
+    - ISO19115-1:MD_Identification/citation//citedResponsibleParty//name
+    - Dataverse:Grant
+    - DATS:acknowledges
+    - dcterms:contributor
+    - CodeMeta:funder
+    description: A person or organization that supports (sponsors) something through
+      some kind of financial contribution.
+    from_schema: rda
+    range: string
+  publisher:
+    name: publisher
+    exact_mappings:
+    - dct:publisher
+    - dcterms:publisher
+    - Datacite:Publisher
+    - ISO19115-1:MD_Identification/citation//citedResponsibleParty//name
+    - Dataverse:Dataset
+    - dcterms:publisher
+    - B2FIND:Publisher
+    - DDI:publisher
+    - ECRIN:Publisher/
+    - CodeMeta:publisher
+    description: The publisher of the creative work
+    from_schema: rda
+    range: string
+  contactPoint:
+    name: contactPoint
+    exact_mappings:
+    - dct:contactPoint
+    - dct:contactPoint
+    - ISO19115-1:MD_Identification/pointOfContact//name
+    - dcterms:mediator
+    - bioschemas:contactPoint
+    - B2FIND:contactPoint
+    - DDI:contact
+    - ECRIN:Access
+    description: A contact point, e.g. email, telephone, address
+    from_schema: rda
+    range: string
+  subjectOf:
+    name: subjectOf
+    exact_mappings:
+    - dcat:theme
+    - dcat:theme
+    - Datacite:Subject*
+    - ISO19115-1:MD_Identification/topicCategory
+    - dcat:theme
+    - dcat:theme
+    - Datacite:Subject*
+    - ISO19115-1:MD_Identification/topicCategory
+    description: The subject matter of content
+    from_schema: rda
+    range: string
+  inLanguage:
+    name: inLanguage
+    exact_mappings:
+    - dct:language
+    - dcterms:language
+    - Datacite:Language
+    - ISO19115-1:MD_Metadata/language
+    - Dataverse:Language
+    - dcterms:language
+    - B2FIND:Language
+    - DDI:language
+    - ECRIN:Language
+    description: The language of the content or performance or used in an action.  Please
+      use one of the language codes from the IETF BCP 47 standard.
+    from_schema: rda
+    range: string
+  dateCreated:
+    name: dateCreated
+    exact_mappings:
+    - dct:created
+    - dcterms:created(O)
+    - Datacite:Date
+    - ISO19115-1:MD_Metadata/dataInfo
+    - EOSC:dateCreated
+    - Dataverse:Date
+    - dcterms:created
+    - bioschemas:dateCreated
+    - DDI:created
+    - ECRIN:Dates
+    - CodeMeta:datedCreated
+    description: The date on which the CreativeWork was created or the item was added
+      to a DataFeed.
+    from_schema: rda
+    range: string
+  datePublished:
+    name: datePublished
+    exact_mappings:
+    - dct:issued
+    - dcterms:dateAccepted
+    - Datacite:PublicationYear
+    - ISO19115-1:same
+    - EOSC:datePublished
+    - Dataverse:Publication
+    - dcterms:dateAccepted
+    - B2FIND:PublicationYear
+    - DDI:distDate
+    - ECRIN:Creation
+    - CodeMeta:datePublished
+    description: Date of first broadcast/publication.
+    from_schema: rda
+    range: date
+  dateModified:
+    name: dateModified
+    exact_mappings:
+    - dct:modified
+    - dcterms:modified
+    - Datacite:Date
+    - ISO19115-1:same
+    - EOSC:dateModified
+    - Dataverse:Version
+    - dcterms:modified
+    - bioschemas:dateModified
+    - DDI:version
+    - ECRIN:Dates
+    - CodeMeta:dateModified
+    description: The date on which the CreativeWork was most recently modified or
+      when the item's entry was modified within a DataFeed.
+    from_schema: rda
+    range: string
+  copyrightHolder:
+    name: copyrightHolder
+    exact_mappings:
+    - dct:rightsHolder
+    - dcterms:rightsHolder
+    - ISO19115-1:MD_Identification/resourceConstaints//responsibleParty//name
+    - dcterms:rightsHolder
+    - CodeMeta:copyrightHolder
+    description: The party holding the legal copyright to the CreativeWork.
+    from_schema: rda
+    range: string
+  mentions:
+    name: mentions
+    exact_mappings:
+    - dct:relation
+    - dct:relation
+    - ISO19115-1:MD_Identifcation/associatedResource/name/CI_Citation
+    - dcterms:relation
+    description: Indicates that the CreativeWork contains a reference to, but is not
+      necessarily about a concept.
+    from_schema: rda
+    range: string
+  isBasedOn:
+    name: isBasedOn
+    exact_mappings:
+    - dct:source(O)
+    - dct:source(O)
+    - Datacite:isContinuedBy
+    - ISO19115-1:MD_Metadata/resourceLineage//source//sourceCitation
+    - dc:source
+    - DDI:derivation
+    description: A resource from which this work is derived or from which it is a
+      modification or adaption
+    from_schema: rda
+    range: string
+  isRelatedTo:
+    name: isRelatedTo
+    exact_mappings:
+    - dct:relation
+    - dct:relation
+    - Datacite:relationType
+    - ISO19115-1:MD_Identifcation/associatedResource/name/CI_Citation
+    - dct:relation
+    description: A pointer to another, somehow related product (or multiple products).
+    from_schema: rda
+    range: string
+  encodingFormat:
+    name: encodingFormat
+    exact_mappings:
+    - dct:format
+    - dct:format
+    - Datacite:Format(O)*
+    - ISO19115-1:MD_Metadata/distributionInfo//transferOptions//distributionFormat//medium//name
+    - EOSC:format
+    - DATS:distribution.format
+    - dct:format
+    - DDI:format
+    - CodeMeta:encordingFormat
+    description: Media type typically expressed using a MIME format
+    from_schema: rda
+    range: string
+  fileFormat (superseded by encordingFormat):
+    name: fileFormat (superseded by encordingFormat)
+    exact_mappings:
+    - dcat:mediaType
+    - Datacite:Format
+    - EOSC:format
+    - DDI:format
+    - CodeMeta:fileFormat
+    description: Media type, typically MIME format (see IANA site) of the content
+      e.g. application/zip of a SoftwareApplication binary. In cases where a CreativeWork
+      has several media type representations, 'encoding' can be used to indicate each
+      MediaObject alongside particular fileFormat information. Unregistered or niche
+      file formats can be indicated instead via the most appropriate URL, e.g. defining
+      Web page or a Wikipedia entry.
+    from_schema: rda
+    range: string
+  contentURL:
+    name: contentURL
+    exact_mappings:
+    - dcat:accessURL
+    - dcat:downloadURL
+    - ISO19115-1:MD_Metadata/distributionInfo//online//linkage
+    - DATS:access
+    description: Actual bytes of the media object, for example the image file or video
+      file.
+    from_schema: rda
+    range: uriorcurie
+  contentSize:
+    name: contentSize
+    exact_mappings:
+    - dct:byteSize(O)
+    - dct:byteSize
+    - Datacite:Size(O)*
+    - ISO19115-1:MD_Metadata/distributionInfo//transferOptions//transferSize
+    - EOSC:size(R)
+    - unknown:collSize
+    description: File size in (mega/kilo) bytes.
+    from_schema: rda
+    range: string
+  repeatFrequency:
+    name: repeatFrequency
+    exact_mappings:
+    - dcterms:accrualPeriodicity
+    - dcterms:accrualPeriodicity
+    - ISO19115-1:MD_Metadata/distributionInfo//transferOptions//transferFrequency
+    - dcterms:accrualPeriodicity
+    description: This term is proposed for full integration into Schema.org* Defines
+      the frequency at which Events will occur according to a schedule Schedule. The
+      intervals between events should be defined as a Duration of time.
+    from_schema: rda
+    range: string
+  contributor:
+    name: contributor
+    exact_mappings:
+    - dcterms:contributor
+    - dcterms:contributor
+    - Datacite:Contributor
+    - ISO19115-1:MD_Identification/citation//citedResponsibleParty//name
+    - Dataverse:Contributor
+    - dcterms:contributor
+    - B2FIND:Contributor
+    - DDI:contributor
+    - ECRIN:Contributors
+    - CodeMeta:Contributor
+    description: A secondary contributor to the CreativeWork or Event.
+    from_schema: rda
+    range: string
+  producer:
+    name: producer
+    exact_mappings:
+    - dcterms:contributor
+    - dcterms:contributor
+    - Datacite:contributor
+    - ISO19115-1:MD_Identification/citation//citedResponsibleParty//name
+    - Dataverse:Producer
+    - dcterms:contributor
+    - DDI:producer
+    - CodeMeta:producer
+    description: The person or organization who produced the work (e.g. music album,
+      movie, tv/radio series etc.).
+    from_schema: rda
+    range: string
+  editor:
+    name: editor
+    exact_mappings:
+    - ISO19115-1:MD_Identification/citation//citedResponsibleParty//name
+    - CodeMeta:editor
+    description: Specifies the Person who edited the CreativeWork.
+    from_schema: rda
+    range: string
+  copyrightYear:
+    name: copyrightYear
+    exact_mappings:
+    - dcterms:dateCopyrighted
+    - dcterms:dateCopyrighted
+    - Datacite:Copyrighted
+    - ISO19115-1:MD_Identification/citation//date
+    - dcterms:dateCopyrighted
+    - CodeMeta:copyrightYear
+    description: The year during which the claimed copyright for the CreativeWork
+      was first asserted.
+    from_schema: rda
+    range: string
+  isAccessibleForFree:
+    name: isAccessibleForFree
+    exact_mappings:
+    - DDI:avlStatus
+    - CodeMeta:isAccessibleForFree
+    description: A flag to signal that the publication is accessible for free.
+    from_schema: rda
+    range: boolean
+classes:
+  Thing:
+    name: Thing
+    from_schema: rda
+    slots:
+    - description
+    - name
+    - identifier
+    - alternateName
+    - sameAs
+    - url
+    - contactPoint
+    - inLanguage
+    - isRelatedTo
+  DataDownload:
+    name: DataDownload
+    from_schema: rda
+    slots:
+    - distribution.contentUrl
+    - distribution.encodingFormat
+  CreativeWork:
+    name: CreativeWork
+    from_schema: rda
+    slots:
+    - citation
+    - keywords
+    - license
+    - creator
+    - isPartOf
+    - hasPart
+    - version
+    - temporalCoverage
+    - spatialCoverage
+    - funder
+    - publisher
+    - subjectOf
+    - dateCreated
+    - datePublished
+    - dateModified
+    - copyrightHolder
+    - mentions
+    - isBasedOn
+    - encodingFormat
+    - fileFormat (superseded by encordingFormat)
+    - funder
+    - contributor
+    - producer
+    - editor
+    - copyrightYear
+    - isAccessibleForFree
+  Dataset:
+    name: Dataset
+    from_schema: rda
+    slots:
+    - measurementTechnique
+    - variableMeasured
+    - includedInDataCatalog
+    - distribution
+  DataCatalog:
+    name: DataCatalog
+    from_schema: rda
+    slots:
+    - measurementTechnique
+  DataDowload:
+    name: DataDowload
+    from_schema: rda
+    slots:
+    - measurementTechnique
+  ' Thing':
+    name: ' Thing'
+    from_schema: rda
+    slots:
+    - subjectOf
+  MediaObject:
+    name: MediaObject
+    from_schema: rda
+    slots:
+    - contentURL
+    - contentSize
+  Schedule:
+    name: Schedule
+    from_schema: rda
+    slots:
+    - repeatFrequency

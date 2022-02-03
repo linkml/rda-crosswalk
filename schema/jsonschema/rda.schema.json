@@ -1,0 +1,267 @@
+{
+   "$defs": {
+      "CreativeWork": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "citation": {
+               "description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.  (Identifies academic articles that are recommended by the data provider be cited in addition to the dataset itself. Provide the citation for the dataset itself with other properties, such as name, identifier, creator, and publisher properties. For example, this property can uniquely identify a related academic publication such as a data descriptor, data paper, or an article for which this dataset is supplementary material for.)",
+               "type": "string"
+            },
+            "contributor": {
+               "description": "A secondary contributor to the CreativeWork or Event.",
+               "type": "string"
+            },
+            "copyrightHolder": {
+               "description": "The party holding the legal copyright to the CreativeWork.",
+               "type": "string"
+            },
+            "copyrightYear": {
+               "description": "The year during which the claimed copyright for the CreativeWork was first asserted.",
+               "type": "string"
+            },
+            "creator": {
+               "description": "The creator/author of this CreativeWork (dataset). This is the same as the Author property for CreativeWork.  (To uniquely identify individuals, use ORCID ID as the value of the sameAs property of the Person type. To uniquely identify institutions and organizations, use ROR ID. )",
+               "type": "string"
+            },
+            "dateCreated": {
+               "description": "The date on which the CreativeWork was created or the item was added to a DataFeed.",
+               "type": "string"
+            },
+            "dateModified": {
+               "description": "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed.",
+               "type": "string"
+            },
+            "datePublished": {
+               "description": "Date of first broadcast/publication.",
+               "format": "date",
+               "type": "string"
+            },
+            "editor": {
+               "description": "Specifies the Person who edited the CreativeWork.",
+               "type": "string"
+            },
+            "encodingFormat": {
+               "description": "Media type typically expressed using a MIME format",
+               "type": "string"
+            },
+            "fileFormat_(superseded_by_encordingFormat)": {
+               "description": "Media type, typically MIME format (see IANA site) of the content e.g. application/zip of a SoftwareApplication binary. In cases where a CreativeWork has several media type representations, 'encoding' can be used to indicate each MediaObject alongside particular fileFormat information. Unregistered or niche file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia entry.",
+               "type": "string"
+            },
+            "funder": {
+               "description": "A person or organization that supports (sponsors) something through some kind of financial contribution.",
+               "type": "string"
+            },
+            "hasPart": {
+               "description": "Indicates a CreativeWork that is (in some sense) a part of this CreativeWork. Reverse property isPartOf",
+               "type": "string"
+            },
+            "isAccessibleForFree": {
+               "description": "A flag to signal that the publication is accessible for free.",
+               "type": "boolean"
+            },
+            "isBasedOn": {
+               "description": "A resource from which this work is derived or from which it is a modification or adaption",
+               "type": "string"
+            },
+            "isPartOf": {
+               "description": "Indicates a CreativeWork that this CreativeWork is (in some sense) part of. Reverse property hasPart.  If the dataset is a collection of smaller datasets, use the hasPart property to denote such relationship. Conversly, if the dataset is part of a larger dataset, use isPartOf.",
+               "type": "string"
+            },
+            "keywords": {
+               "description": "Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.",
+               "type": "string"
+            },
+            "license": {
+               "description": "A license document that applies to this content, typically indicated by URL.  (A license under which the dataset is distributed.)",
+               "type": "string"
+            },
+            "mentions": {
+               "description": "Indicates that the CreativeWork contains a reference to, but is not necessarily about a concept.",
+               "type": "string"
+            },
+            "producer": {
+               "description": "The person or organization who produced the work (e.g. music album, movie, tv/radio series etc.).",
+               "type": "string"
+            },
+            "publisher": {
+               "description": "The publisher of the creative work",
+               "type": "string"
+            },
+            "spatialCoverage": {
+               "description": "The spatialCoverage of a CreativeWork indicates the place(s) which are the focus of the content.  (You can provide a single point that describes the spatial aspect of the dataset. Only include this property if the dataset has a spatial dimension.)",
+               "type": "string"
+            },
+            "subjectOf": {
+               "description": "The subject matter of content",
+               "type": "string"
+            },
+            "temporalCoverage": {
+               "description": "The temporalCoverage of a CreativeWork indicates the period that the content applies to  (The data in the dataset covers a specific time interval. Only include this property if the dataset has a temporal dimension.)",
+               "type": "string"
+            },
+            "version": {
+               "description": "The version of the CreativeWork embodied by a specified resource.",
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "CreativeWork",
+         "type": "object"
+      },
+      "DataCatalog": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "measurementTechnique": {
+               "description": "A technique or technology used in a Dataset (or DataDownload, DataCatalog), corresponding to the method used for measuring the corresponding variable(s)",
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "DataCatalog",
+         "type": "object"
+      },
+      "DataDowload": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "measurementTechnique": {
+               "description": "A technique or technology used in a Dataset (or DataDownload, DataCatalog), corresponding to the method used for measuring the corresponding variable(s)",
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "DataDowload",
+         "type": "object"
+      },
+      "DataDownload": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "distribution.contentUrl": {
+               "description": "(The link for the download.)",
+               "type": "string"
+            },
+            "distribution.encodingFormat": {
+               "description": "(The file format of the distribution.)",
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "DataDownload",
+         "type": "object"
+      },
+      "Dataset": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "distribution": {
+               "description": "A downloadable form of this dataset, at a specific location, in a specific format (The description of the location for download of the dataset and the file format for download.)",
+               "type": "string"
+            },
+            "includedInDataCatalog": {
+               "description": "A data catalog which contains this dataset.  (The catalog to which the dataset belongs.)",
+               "type": "string"
+            },
+            "measurementTechnique": {
+               "description": "A technique or technology used in a Dataset (or DataDownload, DataCatalog), corresponding to the method used for measuring the corresponding variable(s)",
+               "type": "string"
+            },
+            "variableMeasured": {
+               "description": "The variableMeasured property can indicate (repeated as necessary) the variables that are measured in some dataset, either described as text or as pairs of identifier and description using PropertyValue.  (The variable that this dataset measures. For example, temperature or pressure.)",
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "Dataset",
+         "type": "object"
+      },
+      "MediaObject": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "contentSize": {
+               "description": "File size in (mega/kilo) bytes.",
+               "type": "string"
+            },
+            "contentURL": {
+               "description": "Actual bytes of the media object, for example the image file or video file.",
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "MediaObject",
+         "type": "object"
+      },
+      "Schedule": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "repeatFrequency": {
+               "description": "This term is proposed for full integration into Schema.org* Defines the frequency at which Events will occur according to a schedule Schedule. The intervals between events should be defined as a Duration of time.",
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "Schedule",
+         "type": "object"
+      },
+      "Thing": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "alternateName": {
+               "description": "An alias for the item   (Alternative names that have been used to refer to this dataset, such as aliases or abbreviations.)",
+               "type": "string"
+            },
+            "contactPoint": {
+               "description": "A contact point, e.g. email, telephone, address",
+               "type": "string"
+            },
+            "description": {
+               "description": "A description of the item.",
+               "type": "string"
+            },
+            "identifier": {
+               "description": "The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes for more details.",
+               "type": "string"
+            },
+            "inLanguage": {
+               "description": "The language of the content or performance or used in an action.  Please use one of the language codes from the IETF BCP 47 standard.",
+               "type": "string"
+            },
+            "isRelatedTo": {
+               "description": "A pointer to another, somehow related product (or multiple products).",
+               "type": "string"
+            },
+            "name": {
+               "description": "A descriptive name of the item (e.g. dataset, software, Organization).",
+               "type": "string"
+            },
+            "sameAs": {
+               "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
+               "type": "string"
+            },
+            "url": {
+               "description": "URL of the item. (Location of a page describing the dataset.)",
+               "type": "string"
+            }
+         },
+         "required": [
+            "description",
+            "name"
+         ],
+         "title": "Thing",
+         "type": "object"
+      }
+   },
+   "$id": "rda",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "additionalProperties": true,
+   "properties": {},
+   "required": [],
+   "title": "rda",
+   "type": "object"
+}

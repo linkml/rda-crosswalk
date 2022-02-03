@@ -1,0 +1,1421 @@
+{
+  "name": "rda",
+  "id": "rda",
+  "imports": [
+    "linkml:types"
+  ],
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "prefixes": [
+    {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    {
+      "prefix_prefix": "rda",
+      "prefix_reference": "https://example.org/rda/"
+    },
+    {
+      "prefix_prefix": "dcat",
+      "prefix_reference": "http://www.w3.org/ns/dcat#"
+    },
+    {
+      "prefix_prefix": "DDI",
+      "prefix_reference": "http://example.org/DDI/"
+    },
+    {
+      "prefix_prefix": "unknown",
+      "prefix_reference": "http://example.org/unknown/"
+    },
+    {
+      "prefix_prefix": "B2FIND",
+      "prefix_reference": "http://example.org/B2FIND/"
+    },
+    {
+      "prefix_prefix": "sosa",
+      "prefix_reference": "http://example.org/sosa/"
+    },
+    {
+      "prefix_prefix": "DATS",
+      "prefix_reference": "http://example.org/DATS/"
+    },
+    {
+      "prefix_prefix": "dc",
+      "prefix_reference": "http://purl.org/dc/elements/1.1/"
+    },
+    {
+      "prefix_prefix": "ISO19115-1",
+      "prefix_reference": "http://example.org/ISO19115-1/"
+    },
+    {
+      "prefix_prefix": "bioschemas",
+      "prefix_reference": "http://example.org/bioschemas/"
+    },
+    {
+      "prefix_prefix": "ECRIN",
+      "prefix_reference": "http://example.org/ECRIN/"
+    },
+    {
+      "prefix_prefix": "rdfs",
+      "prefix_reference": "http://www.w3.org/2000/01/rdf-schema#"
+    },
+    {
+      "prefix_prefix": "Datacite",
+      "prefix_reference": "http://example.org/Datacite/"
+    },
+    {
+      "prefix_prefix": "Dataverse",
+      "prefix_reference": "http://example.org/Dataverse/"
+    },
+    {
+      "prefix_prefix": "foaf",
+      "prefix_reference": "http://xmlns.com/foaf/0.1/"
+    },
+    {
+      "prefix_prefix": "dct",
+      "prefix_reference": "http://example.org/dct/"
+    },
+    {
+      "prefix_prefix": "CodeMeta",
+      "prefix_reference": "http://example.org/CodeMeta/"
+    },
+    {
+      "prefix_prefix": "dcterms",
+      "prefix_reference": "https://dublincore.org/specifications/dublin-core/dcmi-terms/#"
+    },
+    {
+      "prefix_prefix": "EOSC",
+      "prefix_reference": "http://example.org/EOSC/"
+    },
+    {
+      "prefix_prefix": "owl",
+      "prefix_reference": "http://www.w3.org/2002/07/owl#"
+    }
+  ],
+  "default_prefix": "rda",
+  "default_range": "string",
+  "types": [
+    {
+      "name": "string",
+      "definition_uri": "https://w3id.org/linkml/String",
+      "description": "A character string",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "integer",
+      "definition_uri": "https://w3id.org/linkml/Integer",
+      "description": "An integer",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "int",
+      "uri": "http://www.w3.org/2001/XMLSchema#integer",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "boolean",
+      "definition_uri": "https://w3id.org/linkml/Boolean",
+      "description": "A binary (true or false) value",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "Bool",
+      "uri": "http://www.w3.org/2001/XMLSchema#boolean",
+      "repr": "bool",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "float",
+      "definition_uri": "https://w3id.org/linkml/Float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#float",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "double",
+      "definition_uri": "https://w3id.org/linkml/Double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#double",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "decimal",
+      "definition_uri": "https://w3id.org/linkml/Decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "Decimal",
+      "uri": "http://www.w3.org/2001/XMLSchema#decimal",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "time",
+      "definition_uri": "https://w3id.org/linkml/Time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "XSDTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "date",
+      "definition_uri": "https://w3id.org/linkml/Date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "XSDDate",
+      "uri": "http://www.w3.org/2001/XMLSchema#date",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "datetime",
+      "definition_uri": "https://w3id.org/linkml/Datetime",
+      "description": "The combination of a date and time",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "XSDDateTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "uriorcurie",
+      "definition_uri": "https://w3id.org/linkml/Uriorcurie",
+      "description": "a URI or a CURIE",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "URIorCURIE",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "uri",
+      "definition_uri": "https://w3id.org/linkml/Uri",
+      "description": "a complete URI",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "URI",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "ncname",
+      "definition_uri": "https://w3id.org/linkml/Ncname",
+      "description": "Prefix part of CURIE",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "NCName",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "objectidentifier",
+      "definition_uri": "https://w3id.org/linkml/Objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "comments": [
+        "Used for inheritence and type checking"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "ElementIdentifier",
+      "uri": "http://www.w3.org/ns/shex#iri",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "nodeidentifier",
+      "definition_uri": "https://w3id.org/linkml/Nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "NodeIdentifier",
+      "uri": "http://www.w3.org/ns/shex#nonLiteral",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    }
+  ],
+  "slots": [
+    {
+      "name": "description",
+      "definition_uri": "https://example.org/rda/description",
+      "exact_mappings": [
+        "http://example.org/dct/description",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#description",
+        "http://example.org/Datacite/Description",
+        "http://example.org/ISO19115-1/MD_Identification/abstract",
+        "http://example.org/EOSC/description",
+        "http://example.org/Dataverse/Description;",
+        "http://example.org/DATS/description",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#description",
+        "http://example.org/bioschemas/description",
+        "http://example.org/B2FIND/Description",
+        "http://example.org/DDI/abstract",
+        "http://example.org/ECRIN/Description",
+        "http://example.org/CodeMeta/description"
+      ],
+      "description": "A description of the item.",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/description",
+      "owner": "Thing",
+      "domain_of": [
+        "Thing"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "name",
+      "definition_uri": "https://example.org/rda/name",
+      "exact_mappings": [
+        "http://example.org/dct/title",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#title",
+        "http://example.org/Datacite/Title",
+        "http://example.org/ISO19115-1/MD_Identification/citation//title(M)",
+        "http://example.org/EOSC/name",
+        "http://example.org/Dataverse/Title",
+        "http://example.org/DATS/title",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#title",
+        "http://example.org/bioschemas/name",
+        "http://example.org/B2FIND/Title",
+        "http://example.org/DDI/titl",
+        "http://example.org/ECRIN/Object",
+        "http://example.org/CodeMeta/name"
+      ],
+      "description": "A descriptive name of the item (e.g. dataset, software, Organization).",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/name",
+      "owner": "Thing",
+      "domain_of": [
+        "Thing"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "distribution.contentUrl",
+      "definition_uri": "https://example.org/rda/distribution.contentUrl",
+      "exact_mappings": [
+        "http://example.org/dct/accessURL",
+        "http://www.w3.org/ns/dcat#downloadURL",
+        "http://example.org/ISO19115-1/MD_Metadata/distributionInfo//online//linkage",
+        "http://example.org/EOSC/accessURL",
+        "http://example.org/bioschemas/distribution"
+      ],
+      "description": "(The link for the download.)",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/distribution.contentUrl",
+      "owner": "DataDownload",
+      "domain_of": [
+        "DataDownload"
+      ],
+      "range": "uriorcurie",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "identifier",
+      "definition_uri": "https://example.org/rda/identifier",
+      "exact_mappings": [
+        "http://example.org/dct/identifier",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#identifier",
+        "http://example.org/Datacite/Identifier",
+        "http://example.org/ISO19115-1/MD_Identification/citation//identifier//code",
+        "http://example.org/EOSC/identifier",
+        "http://example.org/Dataverse/Dataset",
+        "http://example.org/DATS/identifier",
+        "http://example.org/bioschemas/identifier",
+        "http://example.org/B2FIND/Identifier",
+        "http://example.org/DDI/IDNo",
+        "http://example.org/ECRIN/DOI",
+        "http://example.org/CodeMeta/identifier"
+      ],
+      "description": "The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes for more details.",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/identifier",
+      "owner": "Thing",
+      "domain_of": [
+        "Thing"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "alternateName",
+      "definition_uri": "https://example.org/rda/alternateName",
+      "exact_mappings": [
+        "http://www.w3.org/2000/01/rdf-schema#label",
+        "http://example.org/Datacite/titleType",
+        "http://example.org/ISO19115-1/MD_Identification/citation//alternateTitle(O)",
+        "http://example.org/Dataverse/Alternative",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#alternative",
+        "http://example.org/bioschemas/alternateName",
+        "http://example.org/DDI/altTitl"
+      ],
+      "description": "An alias for the item   (Alternative names that have been used to refer to this dataset, such as aliases or abbreviations.)",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/alternateName",
+      "owner": "Thing",
+      "domain_of": [
+        "Thing"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sameAs",
+      "definition_uri": "https://example.org/rda/sameAs",
+      "exact_mappings": [
+        "http://www.w3.org/2002/07/owl#sameAs",
+        "http://example.org/Datacite/RelatedIdentifer(R)",
+        "http://example.org/ISO19115-1/MD_Identification/citation//identifier//code",
+        "http://example.org/EOSC/sameAs",
+        "http://example.org/Dataverse/Alternative",
+        "http://example.org/DATS/alternateIdentifier",
+        "http://example.org/ECRIN/Related",
+        "http://example.org/CodeMeta/sameAs"
+      ],
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/sameAs",
+      "owner": "Thing",
+      "domain_of": [
+        "Thing"
+      ],
+      "range": "uriorcurie",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "url",
+      "definition_uri": "https://example.org/rda/url",
+      "exact_mappings": [
+        "http://xmlns.com/foaf/0.1/homepage",
+        "http://www.w3.org/ns/dcat#endPointURL",
+        "http://example.org/Datacite/valueURL",
+        "http://example.org/ISO19115-1/distributionInfo//transferOptions//onLine//linkage",
+        "http://example.org/EOSC/url",
+        "http://example.org/DATS/identifier",
+        "http://purl.org/dc/elements/1.1/identifier",
+        "http://example.org/bioschemas/url",
+        "http://example.org/DDI/accsPlac",
+        "http://example.org/CodeMeta/url"
+      ],
+      "description": "URL of the item. (Location of a page describing the dataset.)",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/url",
+      "owner": "Thing",
+      "domain_of": [
+        "Thing"
+      ],
+      "range": "uriorcurie",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "citation",
+      "definition_uri": "https://example.org/rda/citation",
+      "exact_mappings": [
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#bibliographicCitation",
+        "http://example.org/Datacite/isReferencedBy",
+        "http://example.org/ISO19115-1/MD_Identification/associatedResource//CI_Citation",
+        "http://example.org/EOSC/citation",
+        "http://example.org/Dataverse/Related",
+        "http://example.org/DATS/primaryPublication/",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#isReferencedBy",
+        "http://example.org/bioschemas/citation",
+        "http://example.org/DDI/relPubl(biblCit)",
+        "http://example.org/CodeMeta/citation"
+      ],
+      "description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.  (Identifies academic articles that are recommended by the data provider be cited in addition to the dataset itself. Provide the citation for the dataset itself with other properties, such as name, identifier, creator, and publisher properties. For example, this property can uniquely identify a related academic publication such as a data descriptor, data paper, or an article for which this dataset is supplementary material for.)",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/citation",
+      "owner": "CreativeWork",
+      "domain_of": [
+        "CreativeWork"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "keywords",
+      "definition_uri": "https://example.org/rda/keywords",
+      "exact_mappings": [
+        "http://example.org/dct/keyword",
+        "http://www.w3.org/ns/dcat#keyword",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#subject",
+        "http://example.org/ISO19115-1/MD_Identification/descriptiveKeywords//keyword",
+        "http://example.org/EOSC/keywords",
+        "http://example.org/Dataverse/Subject",
+        "http://example.org/DATS/keywords",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#subject",
+        "http://example.org/bioschemas/keywords",
+        "http://example.org/DDI/keywords",
+        "http://example.org/CodeMeta/keywords"
+      ],
+      "description": "Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/keywords",
+      "owner": "CreativeWork",
+      "domain_of": [
+        "CreativeWork"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "license",
+      "definition_uri": "https://example.org/rda/license",
+      "exact_mappings": [
+        "http://example.org/dct/license",
+        "http://example.org/dct/license",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#rights",
+        "http://example.org/ISO19115-1/MD_Identification/resourceConstraints//reference/CI_Citation,",
+        "http://example.org/EOSC/license",
+        "http://example.org/DATS/licenses",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#rights",
+        "http://example.org/bioschemas/license",
+        "http://example.org/B2FIND/Rights",
+        "http://example.org/DDI/rights",
+        "http://example.org/ECRIN/Rights",
+        "http://example.org/CodeMeta/license"
+      ],
+      "description": "A license document that applies to this content, typically indicated by URL.  (A license under which the dataset is distributed.)",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/license",
+      "owner": "CreativeWork",
+      "domain_of": [
+        "CreativeWork"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "creator",
+      "definition_uri": "https://example.org/rda/creator",
+      "exact_mappings": [
+        "http://example.org/dct/creator",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#creator",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#creator",
+        "http://example.org/ISO19115-1/MD_Identification/citation//citedResponsibleParty//name",
+        "http://example.org/EOSC/creator",
+        "http://example.org/Dataverse/Author;",
+        "http://example.org/DATS/creator",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#creator",
+        "http://example.org/bioschemas/creator",
+        "http://example.org/B2FIND/Creator",
+        "http://example.org/DDI/AuthEnty*",
+        "http://example.org/ECRIN/Creators",
+        "http://example.org/CodeMeta/author"
+      ],
+      "description": "The creator/author of this CreativeWork (dataset). This is the same as the Author property for CreativeWork.  (To uniquely identify individuals, use ORCID ID as the value of the sameAs property of the Person type. To uniquely identify institutions and organizations, use ROR ID. )",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/creator",
+      "owner": "CreativeWork",
+      "domain_of": [
+        "CreativeWork"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "isPartOf",
+      "definition_uri": "https://example.org/rda/isPartOf",
+      "exact_mappings": [
+        "http://example.org/dct/isPartOf",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#isPartOf",
+        "http://example.org/Datacite/isPartOf",
+        "http://example.org/ISO19115-1/MD_Identifcation/associatedResource/name/CI_Citation",
+        "http://example.org/EOSC/includedIn(Dataset)",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#isPartOf",
+        "http://example.org/DDI/isPartOf",
+        "http://example.org/CodeMeta/isPartOf"
+      ],
+      "description": "Indicates a CreativeWork that this CreativeWork is (in some sense) part of. Reverse property hasPart.  If the dataset is a collection of smaller datasets, use the hasPart property to denote such relationship. Conversly, if the dataset is part of a larger dataset, use isPartOf.",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/isPartOf",
+      "owner": "CreativeWork",
+      "domain_of": [
+        "CreativeWork"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "hasPart",
+      "definition_uri": "https://example.org/rda/hasPart",
+      "exact_mappings": [
+        "http://example.org/dct/hasPart",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#hasPart",
+        "http://example.org/Datacite/hasPart",
+        "http://example.org/ISO19115-1/MD_Identifcation/associatedResource/name/CI_Citation",
+        "http://example.org/EOSC/includes(Dataset)",
+        "http://example.org/DATS/hasPart",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#hasPart",
+        "http://example.org/DDI/hasPart",
+        "http://example.org/CodeMeta/hasPart"
+      ],
+      "description": "Indicates a CreativeWork that is (in some sense) a part of this CreativeWork. Reverse property isPartOf",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/hasPart",
+      "owner": "CreativeWork",
+      "domain_of": [
+        "CreativeWork"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "version",
+      "definition_uri": "https://example.org/rda/version",
+      "exact_mappings": [
+        "http://www.w3.org/2002/07/owl#versionInfo",
+        "http://www.w3.org/2002/07/owl#versionInfo",
+        "http://example.org/Datacite/Version",
+        "http://example.org/ISO19115-1/MD_Identification/citation//edition",
+        "http://example.org/EOSC/version",
+        "http://example.org/Dataverse/Version",
+        "http://example.org/DATS/version",
+        "http://example.org/bioschemas/version",
+        "http://example.org/DDI/version",
+        "http://example.org/ECRIN/version",
+        "http://example.org/CodeMeta/version"
+      ],
+      "description": "The version of the CreativeWork embodied by a specified resource.",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/version",
+      "owner": "CreativeWork",
+      "domain_of": [
+        "CreativeWork"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "temporalCoverage",
+      "definition_uri": "https://example.org/rda/temporalCoverage",
+      "exact_mappings": [
+        "http://example.org/dct/temporal",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#temporal",
+        "http://example.org/Datacite/Date",
+        "http://example.org/ISO19115-1/MD_Identification/extent//temporalElement/extent/TM_Primitive",
+        "http://example.org/EOSC/temporalCoverage",
+        "http://example.org/Dataverse/Time",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#temporal",
+        "http://example.org/B2FIND/Temporal",
+        "http://example.org/DDI/temporal"
+      ],
+      "description": "The temporalCoverage of a CreativeWork indicates the period that the content applies to  (The data in the dataset covers a specific time interval. Only include this property if the dataset has a temporal dimension.)",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/temporalCoverage",
+      "owner": "CreativeWork",
+      "domain_of": [
+        "CreativeWork"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "spatialCoverage",
+      "definition_uri": "https://example.org/rda/spatialCoverage",
+      "exact_mappings": [
+        "http://example.org/dct/spatial",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#spatial",
+        "http://example.org/Datacite/GeoLocation(R)",
+        "http://example.org/ISO19115-1/MD_Identification/extent//geographicElement",
+        "http://example.org/EOSC/spatialCoverage",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#coverage",
+        "http://example.org/B2FIND/Spatial",
+        "http://example.org/DDI/geogCover"
+      ],
+      "description": "The spatialCoverage of a CreativeWork indicates the place(s) which are the focus of the content.  (You can provide a single point that describes the spatial aspect of the dataset. Only include this property if the dataset has a spatial dimension.)",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/spatialCoverage",
+      "owner": "CreativeWork",
+      "domain_of": [
+        "CreativeWork"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "measurementTechnique",
+      "definition_uri": "https://example.org/rda/measurementTechnique",
+      "exact_mappings": [
+        "http://example.org/sosa/usedProcedure",
+        "http://example.org/ISO19115-1/MD_Metadata/resourceLineage//statement",
+        "http://example.org/EOSC/measurementTechniques",
+        "http://example.org/bioschemas/measurementTechnique",
+        "http://example.org/DDI/instrumentDevelopment",
+        "http://example.org/sosa/usedProcedure",
+        "http://example.org/ISO19115-1/MD_Metadata/resourceLineage//statement",
+        "http://example.org/EOSC/measurementTechniques",
+        "http://example.org/bioschemas/measurementTechnique",
+        "http://example.org/DDI/instrumentDevelopment",
+        "http://example.org/sosa/usedProcedure",
+        "http://example.org/ISO19115-1/MD_Metadata/resourceLineage//statement",
+        "http://example.org/EOSC/measurementTechniques",
+        "http://example.org/bioschemas/measurementTechnique",
+        "http://example.org/DDI/instrumentDevelopment"
+      ],
+      "description": "A technique or technology used in a Dataset (or DataDownload, DataCatalog), corresponding to the method used for measuring the corresponding variable(s)",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/measurementTechnique",
+      "owner": "DataDowload",
+      "domain_of": [
+        "Dataset",
+        "DataCatalog",
+        "DataDowload"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "variableMeasured",
+      "definition_uri": "https://example.org/rda/variableMeasured",
+      "exact_mappings": [
+        "http://example.org/sosa/observedProperty",
+        "http://example.org/ISO19115-1/MD_Metadata/contentInfo//featureCatalogue",
+        "http://example.org/EOSC/variableMeasured",
+        "http://example.org/DATS/dimensions",
+        "http://example.org/bioschemas/variablesMeasured",
+        "http://example.org/DDI/measure"
+      ],
+      "description": "The variableMeasured property can indicate (repeated as necessary) the variables that are measured in some dataset, either described as text or as pairs of identifier and description using PropertyValue.  (The variable that this dataset measures. For example, temperature or pressure.)",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/variableMeasured",
+      "owner": "Dataset",
+      "domain_of": [
+        "Dataset"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "includedInDataCatalog",
+      "definition_uri": "https://example.org/rda/includedInDataCatalog",
+      "exact_mappings": [
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#isPartOf",
+        "http://example.org/Datacite/publisher",
+        "http://example.org/ISO19115-1/MD_Identification/associatedResource/name/CI_Citation",
+        "http://example.org/EOSC/includedIn(R)",
+        "http://example.org/DATS/distribution.storedIn",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#isPartOf",
+        "http://example.org/bioschemas/includedInDataCatalog"
+      ],
+      "description": "A data catalog which contains this dataset.  (The catalog to which the dataset belongs.)",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/includedInDataCatalog",
+      "owner": "Dataset",
+      "domain_of": [
+        "Dataset"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "distribution",
+      "definition_uri": "https://example.org/rda/distribution",
+      "exact_mappings": [
+        "http://example.org/dct/distribution",
+        "http://www.w3.org/ns/dcat#distribution",
+        "http://example.org/Datacite/distribution",
+        "http://example.org/ISO19115-1/MD_Metadata/distributionInfo/MD_Distribution/transferOptions",
+        "http://example.org/EOSC/distribution",
+        "http://example.org/DATS/distribution",
+        "http://example.org/bioschemas/distribution",
+        "http://example.org/DDI/distrbtr"
+      ],
+      "description": "A downloadable form of this dataset, at a specific location, in a specific format (The description of the location for download of the dataset and the file format for download.)",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/distribution",
+      "owner": "Dataset",
+      "domain_of": [
+        "Dataset"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "distribution.encodingFormat",
+      "definition_uri": "https://example.org/rda/distribution.encodingFormat",
+      "exact_mappings": [
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#format",
+        "http://www.w3.org/ns/dcat#mediaType",
+        "http://example.org/Datacite/format",
+        "http://example.org/ISO19115-1/MD_Metadata/distributionInfo/MD_Distribution/transferOptions//distributionFormat",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#format",
+        "http://example.org/bioschemas/encordingFormat"
+      ],
+      "description": "(The file format of the distribution.)",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/distribution.encodingFormat",
+      "owner": "DataDownload",
+      "domain_of": [
+        "DataDownload"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "funder",
+      "definition_uri": "https://example.org/rda/funder",
+      "exact_mappings": [
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#contributor",
+        "http://example.org/Datacite/contributor",
+        "http://example.org/ISO19115-1/MD_Identification/credit",
+        "http://example.org/Dataverse/Grant",
+        "http://example.org/DATS/acknowledges",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#contributor",
+        "http://example.org/DDI/grantNo",
+        "http://example.org/CodeMeta/funder",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#contributor",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#contributor",
+        "http://example.org/Datacite/contributor",
+        "http://example.org/ISO19115-1/MD_Identification/citation//citedResponsibleParty//name",
+        "http://example.org/Dataverse/Grant",
+        "http://example.org/DATS/acknowledges",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#contributor",
+        "http://example.org/CodeMeta/funder"
+      ],
+      "description": "A person or organization that supports (sponsors) something through some kind of financial contribution.",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/funder",
+      "owner": "CreativeWork",
+      "domain_of": [
+        "CreativeWork"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "publisher",
+      "definition_uri": "https://example.org/rda/publisher",
+      "exact_mappings": [
+        "http://example.org/dct/publisher",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#publisher",
+        "http://example.org/Datacite/Publisher",
+        "http://example.org/ISO19115-1/MD_Identification/citation//citedResponsibleParty//name",
+        "http://example.org/Dataverse/Dataset",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#publisher",
+        "http://example.org/B2FIND/Publisher",
+        "http://example.org/DDI/publisher",
+        "http://example.org/ECRIN/Publisher/",
+        "http://example.org/CodeMeta/publisher"
+      ],
+      "description": "The publisher of the creative work",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/publisher",
+      "owner": "CreativeWork",
+      "domain_of": [
+        "CreativeWork"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "contactPoint",
+      "definition_uri": "https://example.org/rda/contactPoint",
+      "exact_mappings": [
+        "http://example.org/dct/contactPoint",
+        "http://example.org/dct/contactPoint",
+        "http://example.org/ISO19115-1/MD_Identification/pointOfContact//name",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#mediator",
+        "http://example.org/bioschemas/contactPoint",
+        "http://example.org/B2FIND/contactPoint",
+        "http://example.org/DDI/contact",
+        "http://example.org/ECRIN/Access"
+      ],
+      "description": "A contact point, e.g. email, telephone, address",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/contactPoint",
+      "owner": "Thing",
+      "domain_of": [
+        "Thing"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "subjectOf",
+      "definition_uri": "https://example.org/rda/subjectOf",
+      "exact_mappings": [
+        "http://www.w3.org/ns/dcat#theme",
+        "http://www.w3.org/ns/dcat#theme",
+        "http://example.org/Datacite/Subject*",
+        "http://example.org/ISO19115-1/MD_Identification/topicCategory",
+        "http://www.w3.org/ns/dcat#theme",
+        "http://www.w3.org/ns/dcat#theme",
+        "http://example.org/Datacite/Subject*",
+        "http://example.org/ISO19115-1/MD_Identification/topicCategory"
+      ],
+      "description": "The subject matter of content",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/subjectOf",
+      "owner": "Thing",
+      "domain_of": [
+        "CreativeWork",
+        "Thing"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "inLanguage",
+      "definition_uri": "https://example.org/rda/inLanguage",
+      "exact_mappings": [
+        "http://example.org/dct/language",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#language",
+        "http://example.org/Datacite/Language",
+        "http://example.org/ISO19115-1/MD_Metadata/language",
+        "http://example.org/Dataverse/Language",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#language",
+        "http://example.org/B2FIND/Language",
+        "http://example.org/DDI/language",
+        "http://example.org/ECRIN/Language"
+      ],
+      "description": "The language of the content or performance or used in an action.  Please use one of the language codes from the IETF BCP 47 standard.",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/inLanguage",
+      "owner": "Thing",
+      "domain_of": [
+        "Thing"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dateCreated",
+      "definition_uri": "https://example.org/rda/dateCreated",
+      "exact_mappings": [
+        "http://example.org/dct/created",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#created(O)",
+        "http://example.org/Datacite/Date",
+        "http://example.org/ISO19115-1/MD_Metadata/dataInfo",
+        "http://example.org/EOSC/dateCreated",
+        "http://example.org/Dataverse/Date",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#created",
+        "http://example.org/bioschemas/dateCreated",
+        "http://example.org/DDI/created",
+        "http://example.org/ECRIN/Dates",
+        "http://example.org/CodeMeta/datedCreated"
+      ],
+      "description": "The date on which the CreativeWork was created or the item was added to a DataFeed.",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/dateCreated",
+      "owner": "CreativeWork",
+      "domain_of": [
+        "CreativeWork"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "datePublished",
+      "definition_uri": "https://example.org/rda/datePublished",
+      "exact_mappings": [
+        "http://example.org/dct/issued",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#dateAccepted",
+        "http://example.org/Datacite/PublicationYear",
+        "http://example.org/ISO19115-1/same",
+        "http://example.org/EOSC/datePublished",
+        "http://example.org/Dataverse/Publication",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#dateAccepted",
+        "http://example.org/B2FIND/PublicationYear",
+        "http://example.org/DDI/distDate",
+        "http://example.org/ECRIN/Creation",
+        "http://example.org/CodeMeta/datePublished"
+      ],
+      "description": "Date of first broadcast/publication.",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/datePublished",
+      "owner": "CreativeWork",
+      "domain_of": [
+        "CreativeWork"
+      ],
+      "range": "date",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dateModified",
+      "definition_uri": "https://example.org/rda/dateModified",
+      "exact_mappings": [
+        "http://example.org/dct/modified",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#modified",
+        "http://example.org/Datacite/Date",
+        "http://example.org/ISO19115-1/same",
+        "http://example.org/EOSC/dateModified",
+        "http://example.org/Dataverse/Version",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#modified",
+        "http://example.org/bioschemas/dateModified",
+        "http://example.org/DDI/version",
+        "http://example.org/ECRIN/Dates",
+        "http://example.org/CodeMeta/dateModified"
+      ],
+      "description": "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed.",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/dateModified",
+      "owner": "CreativeWork",
+      "domain_of": [
+        "CreativeWork"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "copyrightHolder",
+      "definition_uri": "https://example.org/rda/copyrightHolder",
+      "exact_mappings": [
+        "http://example.org/dct/rightsHolder",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#rightsHolder",
+        "http://example.org/ISO19115-1/MD_Identification/resourceConstaints//responsibleParty//name",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#rightsHolder",
+        "http://example.org/CodeMeta/copyrightHolder"
+      ],
+      "description": "The party holding the legal copyright to the CreativeWork.",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/copyrightHolder",
+      "owner": "CreativeWork",
+      "domain_of": [
+        "CreativeWork"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mentions",
+      "definition_uri": "https://example.org/rda/mentions",
+      "exact_mappings": [
+        "http://example.org/dct/relation",
+        "http://example.org/dct/relation",
+        "http://example.org/ISO19115-1/MD_Identifcation/associatedResource/name/CI_Citation",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#relation"
+      ],
+      "description": "Indicates that the CreativeWork contains a reference to, but is not necessarily about a concept.",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/mentions",
+      "owner": "CreativeWork",
+      "domain_of": [
+        "CreativeWork"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "isBasedOn",
+      "definition_uri": "https://example.org/rda/isBasedOn",
+      "exact_mappings": [
+        "http://example.org/dct/source(O)",
+        "http://example.org/dct/source(O)",
+        "http://example.org/Datacite/isContinuedBy",
+        "http://example.org/ISO19115-1/MD_Metadata/resourceLineage//source//sourceCitation",
+        "http://purl.org/dc/elements/1.1/source",
+        "http://example.org/DDI/derivation"
+      ],
+      "description": "A resource from which this work is derived or from which it is a modification or adaption",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/isBasedOn",
+      "owner": "CreativeWork",
+      "domain_of": [
+        "CreativeWork"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "isRelatedTo",
+      "definition_uri": "https://example.org/rda/isRelatedTo",
+      "exact_mappings": [
+        "http://example.org/dct/relation",
+        "http://example.org/dct/relation",
+        "http://example.org/Datacite/relationType",
+        "http://example.org/ISO19115-1/MD_Identifcation/associatedResource/name/CI_Citation",
+        "http://example.org/dct/relation"
+      ],
+      "description": "A pointer to another, somehow related product (or multiple products).",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/isRelatedTo",
+      "owner": "Thing",
+      "domain_of": [
+        "Thing"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "encodingFormat",
+      "definition_uri": "https://example.org/rda/encodingFormat",
+      "exact_mappings": [
+        "http://example.org/dct/format",
+        "http://example.org/dct/format",
+        "http://example.org/Datacite/Format(O)*",
+        "http://example.org/ISO19115-1/MD_Metadata/distributionInfo//transferOptions//distributionFormat//medium//name",
+        "http://example.org/EOSC/format",
+        "http://example.org/DATS/distribution.format",
+        "http://example.org/dct/format",
+        "http://example.org/DDI/format",
+        "http://example.org/CodeMeta/encordingFormat"
+      ],
+      "description": "Media type typically expressed using a MIME format",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/encodingFormat",
+      "owner": "CreativeWork",
+      "domain_of": [
+        "CreativeWork"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fileFormat_(superseded_by_encordingFormat)",
+      "definition_uri": "https://example.org/rda/fileFormat_(superseded_by_encordingFormat)",
+      "exact_mappings": [
+        "http://www.w3.org/ns/dcat#mediaType",
+        "http://example.org/Datacite/Format",
+        "http://example.org/EOSC/format",
+        "http://example.org/DDI/format",
+        "http://example.org/CodeMeta/fileFormat"
+      ],
+      "description": "Media type, typically MIME format (see IANA site) of the content e.g. application/zip of a SoftwareApplication binary. In cases where a CreativeWork has several media type representations, 'encoding' can be used to indicate each MediaObject alongside particular fileFormat information. Unregistered or niche file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia entry.",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/fileFormat_(superseded_by_encordingFormat)",
+      "owner": "CreativeWork",
+      "domain_of": [
+        "CreativeWork"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "contentURL",
+      "definition_uri": "https://example.org/rda/contentURL",
+      "exact_mappings": [
+        "http://www.w3.org/ns/dcat#accessURL",
+        "http://www.w3.org/ns/dcat#downloadURL",
+        "http://example.org/ISO19115-1/MD_Metadata/distributionInfo//online//linkage",
+        "http://example.org/DATS/access"
+      ],
+      "description": "Actual bytes of the media object, for example the image file or video file.",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/contentURL",
+      "owner": "MediaObject",
+      "domain_of": [
+        "MediaObject"
+      ],
+      "range": "uriorcurie",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "contentSize",
+      "definition_uri": "https://example.org/rda/contentSize",
+      "exact_mappings": [
+        "http://example.org/dct/byteSize(O)",
+        "http://example.org/dct/byteSize",
+        "http://example.org/Datacite/Size(O)*",
+        "http://example.org/ISO19115-1/MD_Metadata/distributionInfo//transferOptions//transferSize",
+        "http://example.org/EOSC/size(R)",
+        "http://example.org/unknown/collSize"
+      ],
+      "description": "File size in (mega/kilo) bytes.",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/contentSize",
+      "owner": "MediaObject",
+      "domain_of": [
+        "MediaObject"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "repeatFrequency",
+      "definition_uri": "https://example.org/rda/repeatFrequency",
+      "exact_mappings": [
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#accrualPeriodicity",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#accrualPeriodicity",
+        "http://example.org/ISO19115-1/MD_Metadata/distributionInfo//transferOptions//transferFrequency",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#accrualPeriodicity"
+      ],
+      "description": "This term is proposed for full integration into Schema.org* Defines the frequency at which Events will occur according to a schedule Schedule. The intervals between events should be defined as a Duration of time.",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/repeatFrequency",
+      "owner": "Schedule",
+      "domain_of": [
+        "Schedule"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "contributor",
+      "definition_uri": "https://example.org/rda/contributor",
+      "exact_mappings": [
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#contributor",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#contributor",
+        "http://example.org/Datacite/Contributor",
+        "http://example.org/ISO19115-1/MD_Identification/citation//citedResponsibleParty//name",
+        "http://example.org/Dataverse/Contributor",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#contributor",
+        "http://example.org/B2FIND/Contributor",
+        "http://example.org/DDI/contributor",
+        "http://example.org/ECRIN/Contributors",
+        "http://example.org/CodeMeta/Contributor"
+      ],
+      "description": "A secondary contributor to the CreativeWork or Event.",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/contributor",
+      "owner": "CreativeWork",
+      "domain_of": [
+        "CreativeWork"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "producer",
+      "definition_uri": "https://example.org/rda/producer",
+      "exact_mappings": [
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#contributor",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#contributor",
+        "http://example.org/Datacite/contributor",
+        "http://example.org/ISO19115-1/MD_Identification/citation//citedResponsibleParty//name",
+        "http://example.org/Dataverse/Producer",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#contributor",
+        "http://example.org/DDI/producer",
+        "http://example.org/CodeMeta/producer"
+      ],
+      "description": "The person or organization who produced the work (e.g. music album, movie, tv/radio series etc.).",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/producer",
+      "owner": "CreativeWork",
+      "domain_of": [
+        "CreativeWork"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "editor",
+      "definition_uri": "https://example.org/rda/editor",
+      "exact_mappings": [
+        "http://example.org/ISO19115-1/MD_Identification/citation//citedResponsibleParty//name",
+        "http://example.org/CodeMeta/editor"
+      ],
+      "description": "Specifies the Person who edited the CreativeWork.",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/editor",
+      "owner": "CreativeWork",
+      "domain_of": [
+        "CreativeWork"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "copyrightYear",
+      "definition_uri": "https://example.org/rda/copyrightYear",
+      "exact_mappings": [
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#dateCopyrighted",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#dateCopyrighted",
+        "http://example.org/Datacite/Copyrighted",
+        "http://example.org/ISO19115-1/MD_Identification/citation//date",
+        "https://dublincore.org/specifications/dublin-core/dcmi-terms/#dateCopyrighted",
+        "http://example.org/CodeMeta/copyrightYear"
+      ],
+      "description": "The year during which the claimed copyright for the CreativeWork was first asserted.",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/copyrightYear",
+      "owner": "CreativeWork",
+      "domain_of": [
+        "CreativeWork"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "isAccessibleForFree",
+      "definition_uri": "https://example.org/rda/isAccessibleForFree",
+      "exact_mappings": [
+        "http://example.org/DDI/avlStatus",
+        "http://example.org/CodeMeta/isAccessibleForFree"
+      ],
+      "description": "A flag to signal that the publication is accessible for free.",
+      "from_schema": "rda",
+      "slot_uri": "https://example.org/rda/isAccessibleForFree",
+      "owner": "CreativeWork",
+      "domain_of": [
+        "CreativeWork"
+      ],
+      "range": "boolean",
+      "@type": "SlotDefinition"
+    }
+  ],
+  "classes": [
+    {
+      "name": "Thing",
+      "definition_uri": "https://example.org/rda/Thing",
+      "from_schema": "rda",
+      "slots": [
+        "description",
+        "name",
+        "identifier",
+        "alternateName",
+        "sameAs",
+        "url",
+        "contactPoint",
+        "inLanguage",
+        "isRelatedTo"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/rda/Thing",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "DataDownload",
+      "definition_uri": "https://example.org/rda/DataDownload",
+      "from_schema": "rda",
+      "slots": [
+        "distribution.contentUrl",
+        "distribution.encodingFormat"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/rda/DataDownload",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "CreativeWork",
+      "definition_uri": "https://example.org/rda/CreativeWork",
+      "from_schema": "rda",
+      "slots": [
+        "citation",
+        "keywords",
+        "license",
+        "creator",
+        "isPartOf",
+        "hasPart",
+        "version",
+        "temporalCoverage",
+        "spatialCoverage",
+        "funder",
+        "publisher",
+        "subjectOf",
+        "dateCreated",
+        "datePublished",
+        "dateModified",
+        "copyrightHolder",
+        "mentions",
+        "isBasedOn",
+        "encodingFormat",
+        "fileFormat_(superseded_by_encordingFormat)",
+        "funder",
+        "contributor",
+        "producer",
+        "editor",
+        "copyrightYear",
+        "isAccessibleForFree"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/rda/CreativeWork",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Dataset",
+      "definition_uri": "https://example.org/rda/Dataset",
+      "from_schema": "rda",
+      "slots": [
+        "measurementTechnique",
+        "variableMeasured",
+        "includedInDataCatalog",
+        "distribution"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/rda/Dataset",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "DataCatalog",
+      "definition_uri": "https://example.org/rda/DataCatalog",
+      "from_schema": "rda",
+      "slots": [
+        "measurementTechnique"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/rda/DataCatalog",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "DataDowload",
+      "definition_uri": "https://example.org/rda/DataDowload",
+      "from_schema": "rda",
+      "slots": [
+        "measurementTechnique"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/rda/DataDowload",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Thing",
+      "definition_uri": "https://example.org/rda/Thing",
+      "from_schema": "rda",
+      "slots": [
+        "subjectOf"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/rda/Thing",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "MediaObject",
+      "definition_uri": "https://example.org/rda/MediaObject",
+      "from_schema": "rda",
+      "slots": [
+        "contentURL",
+        "contentSize"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/rda/MediaObject",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Schedule",
+      "definition_uri": "https://example.org/rda/Schedule",
+      "from_schema": "rda",
+      "slots": [
+        "repeatFrequency"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/rda/Schedule",
+      "@type": "ClassDefinition"
+    }
+  ],
+  "metamodel_version": "1.7.0",
+  "source_file": "rda.yaml",
+  "source_file_date": "2022-02-02T17:47:09",
+  "source_file_size": 24495,
+  "generation_date": "2022-02-02T17:47:10",
+  "@type": "SchemaDefinition",
+  "@context": [
+    "../rda-crosswalk/schema/jsonld/rda.context.jsonld",
+    "https://w3id.org/linkml/types.context.jsonld",
+    {
+      "@base": "https://example.org/rda/"
+    }
+  ]
+}
