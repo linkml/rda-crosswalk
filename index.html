@@ -60,6 +60,14 @@
     <li class="toctree-l2"><a class="reference internal" href="#source-files">Source Files</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#translation">Translation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#prefixes">Prefixes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#documentation-site">Documentation Site</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#derived-schema-products">Derived Schema Products</a>
+    </li>
+        </ul>
     </li>
     </ul>
                     </li>
@@ -106,15 +114,40 @@
               
                 <h1 id="rda-schema-crosswalk">RDA Schema crosswalk</h1>
 <p>This is in experiment translating the RDA Crosswalk to <a href="https://linkml.io/linkml">LinkML</a></p>
+<p><img alt="img" src="https://www.rd-alliance.org/sites/default/files/RDA%20Logo_5.png" />
+<img alt="linkml logo" src="https://avatars.githubusercontent.com/u/79337873?s=200&amp;v=4" /></p>
+<p>This is a DEMO site and NOT an officially sanctioned RDA product - any errors are our own</p>
 <h2 id="source-files">Source Files</h2>
 <p>We took the Excel file from here: https://www.rd-alliance.org/group/research-metadata-schemas-wg/outcomes/collection-crosswalks-fifteen-research-data-schemas</p>
-<p>We made various changes to make it more FAIR, including fixing mappings to be CURIEs.</p>
-<p>Our google sheet: <a href="https://docs.google.com/spreadsheets/d/1mu9iWZxX4DvtklLIQgEloM8oZfzZdzfJ/edit#gid=1108662376">RDA edited</a></p>
-<p>We also included a <a href="https://linkml.io/schemasheets">Schemasheets</a> header line to formally describe the column headings</p>
+<p>We made changes and put it up as a google sheet: <a href="https://docs.google.com/spreadsheets/d/1mu9iWZxX4DvtklLIQgEloM8oZfzZdzfJ/edit#gid=1108662376">RDA edited</a></p>
+<ul>
+<li>We made various changes to make it more FAIR, including fixing mappings to be CURIEs.</li>
+<li>We also included a <a href="https://linkml.io/schemasheets">Schemasheets</a> header line to formally describe the column headings</li>
+</ul>
 <h2 id="translation">Translation</h2>
 <p>We then use the LinkML generators to make various products</p>
 <ul>
+<li>schemasheets translation of google sheet to LinkML: <a href="https://github.com/linkml/rda-crosswalk/blob/main/crosswalk.yaml">crosswalk.yaml</a></li>
+</ul>
+<p>Some limitations:</p>
+<h3 id="prefixes">Prefixes</h3>
+<ul>
+<li>we don't provide any of our own information on prefixes. We rely on bioregistry</li>
+<li>any prefixes not found get an example.org URL</li>
+</ul>
+<h3 id="documentation-site">Documentation Site</h3>
+<ul>
 <li><a href="schema">schema</a> Schema documentation</li>
+</ul>
+<p>This site is entirely automatically generated from the crosswalk file</p>
+<h3 id="derived-schema-products">Derived Schema Products</h3>
+<p>These are also auto-derived</p>
+<ul>
+<li><a href="https://github.com/linkml/rda-crosswalk/tree/main/schema/jsonschema">json-schema</a></li>
+<li><a href="https://github.com/linkml/rda-crosswalk/tree/main/schema/shacl">SHACL</a></li>
+<li><a href="https://github.com/linkml/rda-crosswalk/tree/main/schema/shex">ShEx</a></li>
+<li><a href="https://github.com/linkml/rda-crosswalk/tree/main/schema/sssom">Mappings</a> (in <a href="https://w3id.org/sssom">SSSOM</a> )</li>
+<li>Other products: <a href="https://github.com/linkml/rda-crosswalk/tree/main/schema">schema/ folder</a></li>
 </ul>
               
             </div>
@@ -174,5 +207,5 @@
 
 <!--
 MkDocs version : 1.2.3
-Build Date UTC : 2022-02-03 01:55:15.582286+00:00
+Build Date UTC : 2022-02-03 02:05:19.562058+00:00
 -->
