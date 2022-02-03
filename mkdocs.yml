@@ -1,0 +1,10 @@
+site_name: "SCHEMASHEETS DEMO - RDA Crosswalk"
+theme:
+  name: readthedocs
+  analytics:
+    gtag: G-2SYBSJVZ23
+nav:
+  - About: index.md
+  - Schema: schema.md
+site_url: https://linkml.github.io/rda-crosswalk/
+repo_url: https://github.com/linkml/rda-crosswalk/
