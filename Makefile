@@ -23,7 +23,7 @@ gendocs:
 	mv stage-docs/index.md docs/schema.md && mv stage-docs/*md docs/
 
 
-serve:
+docserve:
 	$(RUN) mkdocs serve
 
 gh-deploy:
